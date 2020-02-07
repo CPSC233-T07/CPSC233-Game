@@ -8,3 +8,5 @@
 #   2. Once you finish working on it create a pull request which lets you compare all the differences between the master branch and yours
 #   3. Confirm your pull request and the your branch will be merged into the master branch
 
+#   Anytime you make a chnage to any branche Github typically requires your "Commit Changes". It doesnt need to be precise or detailed just a short sentence explaining your changes like "Updated Readme file"
+
