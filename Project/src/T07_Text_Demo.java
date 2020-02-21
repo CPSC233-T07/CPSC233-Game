@@ -1,11 +1,10 @@
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+import java.util.Random;
 
 public class T07_Text_Demo {
 	private final static int W_KEY = 87;
@@ -13,6 +12,13 @@ public class T07_Text_Demo {
 	private final static int S_KEY = 83;
 	private final static int D_KEY = 68;
 	private final static int ESC_KEY = 27;
+	
+	private static long startTime = System.currentTimeMillis();
+
+
+	
+	private static Random random = new Random();
+	
 
 	private enum playerState {
 		FORWARD, BACKWARD, LEFT, RIGHT, STOPPED
@@ -25,6 +31,7 @@ public class T07_Text_Demo {
 		// Initialize the frame settings
 		JFrame frame = new JFrame("KeyListener");
 		Container contentPane = frame.getContentPane();
+		
 
 		// Initialize the keyboard listener
 		KeyListener listener = new KeyListener() {
@@ -42,6 +49,9 @@ public class T07_Text_Demo {
 				int keyCode = e.getKeyCode();
 				if (keyCode == W_KEY || keyCode == A_KEY || keyCode == S_KEY || keyCode == D_KEY)
 					System.out.print("Moving: ");
+				
+				long elapsedTime = System.currentTimeMillis() - startTime;
+				long elapsedSeconds = elapsedTime / 1000;
 
 				// Simple switch statement for basic keys we will be testing for.
 				switch (keyCode) {
@@ -67,6 +77,15 @@ public class T07_Text_Demo {
 					System.out.println("Game Stopped");
 					System.exit(0);
 				}
+				
+				if(elapsedSeconds == random.nextInt(100)) {
+					startTime = System.currentTimeMillis();
+					System.out.println("");
+					System.out.println("Battle Started");
+					System.out.println("");
+					System.out.println("Battle Ended");
+					System.out.println("");
+				}
 
 			}
 
@@ -91,6 +110,10 @@ public class T07_Text_Demo {
 		frame.pack();
 
 		frame.setVisible(true);
+		
+
+		
+		
 	}
 
 }
