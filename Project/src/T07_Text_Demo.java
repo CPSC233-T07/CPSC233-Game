@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class GameLoop {
+public class T07_Text_Demo {
 	private final static int W_KEY = 87;
 	private final static int A_KEY = 65;
 	private final static int S_KEY = 83;
