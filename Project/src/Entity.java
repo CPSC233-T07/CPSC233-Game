@@ -16,6 +16,14 @@ public class Entity{
 		this.width = width;
 	}
 	
+	public Entity(Entity toCopy) {
+		this.name = toCopy.getName();
+		this.personality = toCopy.getPersonality();
+		this.happinessPoints = toCopy.getHP();
+		this.height = toCopy.getHeight();
+		this.width = toCopy.getWidth();	
+	}
+	
 	public int getHP() {
 		return this.happinessPoints;
 	}
