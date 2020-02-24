@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
 public class Player extends Entity{
-	
-	private static final Personality SASSY = null;
 
 	public Player(String name, Personality personality, int happinessPoints, int height, int width) {
 		super(name, personality, happinessPoints, height, width);
@@ -44,17 +42,6 @@ public class Player extends Entity{
 		party.remove(index);
 	}
 	
-	
-	public static void main(String args[])
-	{
-		Player liana = new Player("Liana", SASSY, 100, 50, 50);
-		System.out.println(liana.getHeight());
-		Entity newCopy = new Entity(liana);
-		newCopy.setHeight(25);
-		liana.addPartyMember(newCopy);
-		System.out.println(liana.getParty().get(0));
-		System.out.println(liana.getParty().get(0).getHeight());
-	}
 }
 
 
