@@ -4,5 +4,8 @@ public enum Personality {
 	SHY,
 	ROMANTIC,
 	ENERGETIC,
-	SASSY
+	SASSY,
+	NONE
 }
+
+
