@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import java.util.Random;
+import java.util.Scanner;
 
 public class T07_Text_Demo {
 	private final static int W_KEY = 87;
@@ -27,7 +28,26 @@ public class T07_Text_Demo {
 	private static playerState currentPlayerState = playerState.STOPPED;
 
 	public static void main(String[] args) {
-
+		
+		//Initialise the Player Entity
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter your name");
+		String playerName = sc.nextLine();
+		Player player = new Player(playerName, Personality.NONE, 100, 300, 200);
+		
+		System.out.println(String.format("Initialized Player: %s With %d Happiness Points. Player: %s, has a height of %d and a width of %d", 
+				player.getName(), player.getHP(), player.getName(), player.getHeight(), player.getWidth()));
+		
+		
+		//Initialize a map
+		int[][] map = {{1,1,1,1,1,1,1,1},
+					   {1,0,0,0,0,0,0,1},
+					   {1,0,0,0,0,0,0,1},
+					   {1,0,0,0,0,0,0,1},
+					   {1,1,1,1,1,1,1,1}};
+		Map testMap = new Map(map, "Test map");
+		System.out.println(String.format("%s initialized", testMap.toString()));
+		
 		// Initialize the frame settings
 		JFrame frame = new JFrame("KeyListener");
 		Container contentPane = frame.getContentPane();
