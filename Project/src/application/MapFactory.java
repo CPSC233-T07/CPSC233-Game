@@ -7,14 +7,13 @@ import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.entity.Entities;
-import com.almasb.fxgl.entity.Entities.EntityBuilder;
 import com.almasb.fxgl.entity.Entity;
 
 
 
 public class MapFactory implements EntityFactory{
 	
-	@Spawns("wall")
+	@Spawns(value = "wall")
 	public Entity newWall(SpawnData data) {
 		return Entities.builder()
 				.from(data)
@@ -22,5 +21,6 @@ public class MapFactory implements EntityFactory{
 				.with(new PhysicsComponent())
 				.build();
 	}
+
 
 }

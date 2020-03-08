@@ -5,12 +5,16 @@ import java.util.Map;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.entity.Entities;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.TextEntityFactory;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.parser.text.TextLevelParser;
 import com.almasb.fxgl.settings.GameSettings;
 import com.almasb.fxgl.texture.Texture;
+import com.sun.prism.paint.Color;
 
 import javafx.scene.input.KeyCode;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 /*
@@ -66,10 +70,12 @@ public class GameMain extends GameApplication {
 	 */
 	@Override
 	protected void initGame() {
-		player = Entities.builder().at(300, 300)
-				.viewFromTexture("brick.png")
-				.buildAndAttach(getGameWorld());
+		getGameWorld().addEntityFactory(new MapFactory());
 		getGameWorld().setLevelFromMap("level1.tmx");
+		player = Entities.builder().at(300, 300)
+				.viewFromNodeWithBBox(new Rectangle(25,25))
+				.buildAndAttach(getGameWorld());
+		getGameWorld().spawn("wall");
 	}
 
 	/*
