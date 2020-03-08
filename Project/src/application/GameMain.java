@@ -48,13 +48,14 @@ public class GameMain extends GameApplication {
 
 	private Entity player;
 	
+	
 /*
  * initialize basic settings.
  */
 	@Override
 	protected void initSettings(GameSettings settings) {
-		settings.setWidth(800);
-		settings.setHeight(600);
+		settings.setWidth(20*32);
+		settings.setHeight(20*32);
 		settings.setTitle("Basic Game App");
 		settings.setVersion("0.1");
 	}
@@ -68,6 +69,7 @@ public class GameMain extends GameApplication {
 		player = Entities.builder().at(300, 300)
 				.viewFromTexture("brick.png")
 				.buildAndAttach(getGameWorld());
+		getGameWorld().setLevelFromMap("level1.tmx");
 	}
 
 	/*
