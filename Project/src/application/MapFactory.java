@@ -13,7 +13,7 @@ import com.almasb.fxgl.entity.Entity;
 
 public class MapFactory implements EntityFactory{
 	
-	@Spawns(value = "wall")
+	@Spawns("wall")
 	public Entity newWall(SpawnData data) {
 		return Entities.builder()
 				.from(data)
