@@ -17,10 +17,22 @@ public class MapFactory implements EntityFactory{
 	public Entity newWall(SpawnData data) {
 		return Entities.builder()
 				.from(data)
-				.bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+				.bbox(new HitBox(BoundingShape.box(data.getX(), data.getY())))
+				.with(new PhysicsComponent())
+				.build();
+	}
+	@Spawns("wall2")
+	public Entity newWall2(SpawnData data) {
+		return Entities.builder()
+				.from(data)
+				.bbox(new HitBox(BoundingShape.box(114, 635)))
 				.with(new PhysicsComponent())
 				.build();
 	}
 
+	}
+		
+	
 
-}
+
+

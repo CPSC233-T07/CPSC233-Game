@@ -5,15 +5,13 @@ import java.util.Map;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.entity.Entities;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.TextEntityFactory;
+import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.parser.text.TextLevelParser;
 import com.almasb.fxgl.settings.GameSettings;
 import com.almasb.fxgl.texture.Texture;
-import com.sun.prism.paint.Color;
-
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -73,9 +71,11 @@ public class GameMain extends GameApplication {
 		getGameWorld().addEntityFactory(new MapFactory());
 		getGameWorld().setLevelFromMap("level1.tmx");
 		player = Entities.builder().at(300, 300)
-				.viewFromNodeWithBBox(new Rectangle(25,25))
+				.viewFromNodeWithBBox(new Rectangle(20,20, Color.BLUE))
+				.with(new CollidableComponent(true))
 				.buildAndAttach(getGameWorld());
 		getGameWorld().spawn("wall");
+		getGameWorld().spawn("wall2");
 	}
 
 	/*
@@ -90,28 +90,28 @@ public class GameMain extends GameApplication {
 		input.addAction(new UserAction("Move Right") {
 			@Override
 			protected void onAction() {
-				player.translateX(5);
+				player.translateX(2);
 				getGameState().increment("pixelsMoved", +5);
 			}
 		}, KeyCode.D);
 		input.addAction(new UserAction("Move Left") {
 			@Override
 			protected void onAction() {
-				player.translateX(-5);
+				player.translateX(-2);
 				getGameState().increment("pixelsMoved", -5);
 			}
 		}, KeyCode.A);
 		input.addAction(new UserAction("Move Up") {
 			@Override
 			protected void onAction() {
-				player.translateY(-5);
+				player.translateY(-2);
 				getGameState().increment("pixelsMoved", -5);
 			}
 		}, KeyCode.W);
 		input.addAction(new UserAction("Move Down") {
 			@Override
 			protected void onAction() {
-				player.translateY(5);
+				player.translateY(2);
 				getGameState().increment("pixelsMoved", +5);
 			}
 		}, KeyCode.S);
@@ -138,8 +138,8 @@ public class GameMain extends GameApplication {
 		brickTexture.setTranslateX(50);
 		brickTexture.setTranslateY(450);
 		
-		getGameScene().addUINode(textPixels);
-		getGameScene().addUINode(brickTexture);
+		//getGameScene().addUINode(textPixels);
+		//getGameScene().addUINode(brickTexture);
 		textPixels.textProperty().bind(getGameState().intProperty("pixelsMoved").asString());
 	}
 	
