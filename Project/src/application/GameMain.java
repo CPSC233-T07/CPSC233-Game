@@ -70,10 +70,17 @@ public class GameMain extends GameApplication {
 	protected void initGame() {
 		getGameWorld().addEntityFactory(new MapFactory());
 		getGameWorld().setLevelFromMap("level1.tmx");
-		player = Entities.builder().at(300, 300)
-				.viewFromNodeWithBBox(new Rectangle(20,20, Color.BLUE))
+		//player = Entities.builder().at(300, 300)
+		//		.viewFromNodeWithBBox(new Rectangle(20,20, Color.BLUE))
+		//		.with(new CollidableComponent(true))
+		//		.buildAndAttach(getGameWorld());
+		
+		player=Entities.builder().at(300,300)
+				.with(new CharacterControl())
 				.with(new CollidableComponent(true))
 				.buildAndAttach(getGameWorld());
+				
+				
 		getGameWorld().spawn("wall");
 		getGameWorld().spawn("wall2");
 	}
@@ -90,29 +97,33 @@ public class GameMain extends GameApplication {
 		input.addAction(new UserAction("Move Right") {
 			@Override
 			protected void onAction() {
-				player.translateX(2);
-				getGameState().increment("pixelsMoved", +5);
+				//player.translateX(2);
+				//getGameState().increment("pixelsMoved", +5);
+				player.getComponent(CharacterControl.class).moveRight();
 			}
 		}, KeyCode.D);
 		input.addAction(new UserAction("Move Left") {
 			@Override
 			protected void onAction() {
-				player.translateX(-2);
-				getGameState().increment("pixelsMoved", -5);
+				//player.translateX(-2);
+				//getGameState().increment("pixelsMoved", -5);
+				player.getComponent(CharacterControl.class).moveLeft();
 			}
 		}, KeyCode.A);
 		input.addAction(new UserAction("Move Up") {
 			@Override
 			protected void onAction() {
-				player.translateY(-2);
-				getGameState().increment("pixelsMoved", -5);
+				//player.translateY(-2);
+				//getGameState().increment("pixelsMoved", -5);
+				player.getComponent(CharacterControl.class).moveUp();
 			}
 		}, KeyCode.W);
 		input.addAction(new UserAction("Move Down") {
 			@Override
 			protected void onAction() {
-				player.translateY(2);
-				getGameState().increment("pixelsMoved", +5);
+				//player.translateY(2);
+				//getGameState().increment("pixelsMoved", +5);
+				player.getComponent(CharacterControl.class).moveDown();
 			}
 		}, KeyCode.S);
 		
