@@ -1,0 +1,502 @@
+12:26:38.244 [JavaFX Application Thread] DEBUG GameApplication      - Logger initialized
+12:26:38.252 [JavaFX Application Thread] DEBUG GameApplication      - Logging settings
+Title: Basic Game App
+Version: 0.1
+Width: 640
+Height: 640
+Fullscreen: false
+Intro: false
+Menus: false
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.almasb.fxgl.scene.SceneFactory
+Dialog Factory: class com.almasb.fxgl.ui.FXGLDialogFactory
+UI Factory: class com.almasb.fxgl.ui.FXGLUIFactory
+Notification Service: class com.almasb.fxgl.gameplay.notification.XboxNotificationView
+Exception Handler: class com.almasb.fxgl.app.FXGLExceptionHandler
+12:26:38.252 [JavaFX Application Thread] DEBUG GameApplication      - Starting FXGL
+12:26:38.259 [JavaFX Application Thread] INFO  FXGL                 - FXGL-0.5.4 on DESKTOP
+12:26:38.260 [JavaFX Application Thread] INFO  FXGL                 - Source code and latest versions at: https://github.com/AlmasB/FXGL
+12:26:38.260 [JavaFX Application Thread] INFO  FXGL                 -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+12:26:38.260 [JavaFX Application Thread] DEBUG FXGL                 - FXGL started
+12:26:38.260 [JavaFX Application Thread] DEBUG FXGL                 - Initializing FXGL
+12:26:38.291 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/ui/cursors/fxgl_default.png
+12:26:38.321 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/ui/fonts/VarelaRound-Regular.ttf
+12:26:38.449 [JavaFX Application Thread] DEBUG MainWindow           - Creating a JavaFX scene
+12:26:38.475 [JavaFX Application Thread] DEBUG MainWindow           - Target settings size: 640.0 x 640.0
+12:26:38.475 [JavaFX Application Thread] DEBUG MainWindow           - Scaled scene size:    640.0 x 640.0
+12:26:38.475 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (1.0, 1.0)
+12:26:38.477 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/ui/css/fxgl_dark.css
+12:26:38.479 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/textures/fxgl_icon.png
+12:26:38.492 [JavaFX Application Thread] DEBUG MainWindow           - Opening main window
+12:26:38.578 [JavaFX Application Thread] DEBUG MainWindow           - Window border size: (16.0, 39.0)
+12:26:38.578 [JavaFX Application Thread] DEBUG MainWindow           - Scaled size: 640.0 x 640.0
+12:26:38.578 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (1.0, 1.0)
+12:26:38.579 [JavaFX Application Thread] DEBUG MainWindow           - Scene size: 640.0 x 640.0
+12:26:38.579 [JavaFX Application Thread] DEBUG MainWindow           - Stage size: 656.0 x 679.0
+12:26:38.594 [ForkJoinPool.commonPool-worker-19] DEBUG FS                   - Loaded DesktopFSService
+12:26:38.595 [ForkJoinPool.commonPool-worker-19] DEBUG FXGL                 - Loading FXGL system data
+12:26:38.599 [ForkJoinPool.commonPool-worker-19] DEBUG DesktopFSService     - Reading from: system\fxgl.bundle
+12:26:38.606 [ForkJoinPool.commonPool-worker-19] DEBUG Bundle               - Logging bundle: FXGL
+12:26:38.607 [ForkJoinPool.commonPool-worker-19] DEBUG Bundle               - FXGL.offline.timer.version.check=2020-03-04T20:18:36.122706300
+12:26:38.607 [ForkJoinPool.commonPool-worker-19] DEBUG FXGL                 - Initializing state machine and application states
+12:26:38.608 [ForkJoinPool.commonPool-worker-19] DEBUG AssetLoader          - Loading from disk: /assets/ui/cursors/fxgl_default.png
+12:26:38.612 [ForkJoinPool.commonPool-worker-19] DEBUG AssetLoader          - Loading from disk: /assets/ui/cursors/fxgl_default.png
+12:26:38.617 [ForkJoinPool.commonPool-worker-19] DEBUG AssetLoader          - Loading from cache: /assets/ui/fonts/VarelaRound-Regular.ttf
+12:26:38.618 [ForkJoinPool.commonPool-worker-19] DEBUG AssetLoader          - Loading from disk: /assets/ui/cursors/fxgl_default.png
+12:26:38.620 [ForkJoinPool.commonPool-worker-19] DEBUG GameScene            - Game scene initialized: 640x640
+12:26:38.623 [ForkJoinPool.commonPool-worker-19] DEBUG GameWorld            - Game world initialized
+12:26:38.646 [ForkJoinPool.commonPool-worker-19] DEBUG PhysicsWorld         - Physics world initialized: appHeight=640, physics.ppm=50.0
+12:26:38.656 [ForkJoinPool.commonPool-worker-19] DEBUG Input                - Registered new binding: Pause - Esc
+12:26:38.677 [JavaFX Application Thread] DEBUG FXGL                 - Running preInit()
+12:26:38.677 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - P
+12:26:38.678 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Dev Options - CTRL+0
+12:26:38.678 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+12:26:38.678 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+12:26:38.678 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Right - D
+12:26:38.678 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Left - A
+12:26:38.679 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Up - W
+12:26:38.679 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Down - S
+12:26:38.679 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Play Sound - F
+12:26:38.679 [JavaFX Application Thread] INFO  FXGL                 - FXGL initialization took: 0.419 sec
+12:26:38.679 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+12:26:38.682 [JavaFX Application Thread] DEBUG StartupState         - STARTUP
+12:26:38.682 [JavaFX Application Thread] DEBUG GameApplication      - Starting new game
+12:26:38.682 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+12:26:38.683 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/ui/css/fxgl_dark.css
+12:26:38.688 [JavaFX Application Thread] DEBUG AppStateMachine      - StartupState -> LoadingState
+12:26:38.691 [FXGL Background Thread 1 ] DEBUG InitAppTask          - Clearing previous game
+12:26:38.691 [FXGL Background Thread 1 ] DEBUG GameWorld            - Clearing game world
+12:26:38.691 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Clearing physics world
+12:26:38.691 [FXGL Background Thread 1 ] DEBUG GameScene            - Clearing game scene
+12:26:38.692 [FXGL Background Thread 1 ] DEBUG InitAppTask          - Initializing Game
+12:26:38.703 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from disk: /assets/tmx/level1.tmx
+12:26:38.719 [FXGL Background Thread 1 ] WARN  TMXParser            - TiledMap generated from 1.3.3. Supported version: 1.1.2. Some features may not be parsed fully.
+12:26:38.728 [FXGL Background Thread 1 ] DEBUG GameWorld            - Clearing removable entities
+12:26:38.729 [FXGL Background Thread 1 ] DEBUG GameWorld            - Setting level from map
+12:26:38.739 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from disk: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.748 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.749 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.750 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.751 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.752 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.753 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.754 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.755 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.756 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.757 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.758 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.759 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.760 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.761 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.762 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.763 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.764 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.765 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.766 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.767 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.768 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.769 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.770 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.771 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.772 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.773 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.774 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.775 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.776 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.777 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.778 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.779 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.780 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.781 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.781 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/SPRITESHEET.png
+12:26:38.782 [FXGL Background Thread 1 ] DEBUG GameScene            - Creating render group for layer: BACKGROUND(1000)
+12:26:38.803 [FXGL Background Thread 1 ] DEBUG GameScene            - Creating render group for layer: DEFAULT(100000)
+12:26:38.805 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from disk: /assets/textures/CharacterSprite.png
+12:26:38.806 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.807 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from cache: /assets/textures/CharacterSprite.png
+12:26:38.809 [FXGL Background Thread 1 ] DEBUG InitAppTask          - Initializing Physics
+12:26:38.809 [FXGL Background Thread 1 ] DEBUG InitAppTask          - Initializing UI
+12:26:38.809 [FXGL Background Thread 1 ] DEBUG AssetLoader          - Loading from disk: /assets/textures/brick.png
+12:26:38.810 [FXGL Background Thread 1 ] DEBUG InitAppTask          - Initialization Complete
+12:26:38.810 [FXGL Background Thread 1 ] INFO  InitAppTask          - Game initialization took: 0.119 sec
+12:26:38.812 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+12:26:38.812 [JavaFX Application Thread] DEBUG AssetLoader          - Loading from disk: /assets/ui/css/fxgl_dark.css
+12:26:38.820 [JavaFX Application Thread] DEBUG AppStateMachine      - LoadingState -> PlayState
+12:26:43.977 [JavaFX Application Thread] DEBUG FXGL                 - Exiting FXGL
+12:26:43.977 [JavaFX Application Thread] DEBUG FXGL                 - Shutting down background threads
+12:26:43.977 [JavaFX Application Thread] DEBUG FXGL                 - Saving FXGL system data
+12:26:43.979 [JavaFX Application Thread] DEBUG DesktopFSService     - Writing to: system\fxgl.bundle
+12:26:43.981 [JavaFX Application Thread] DEBUG FXGL                 - Closing logger and exiting JavaFX

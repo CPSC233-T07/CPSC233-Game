@@ -11,7 +11,8 @@ import javafx.util.Duration;
 
 public class CharacterControl extends Component{
 	
-	private int speed=0;
+	private int speedX=0;
+	private int speedY=0;
 	
 	private AnimatedTexture texture;
 	private AnimationChannel animStopU,animStopD,animStopL,animStopR,animWalkUp,animWalkDown,animWalkLeft
@@ -41,26 +42,37 @@ public class CharacterControl extends Component{
 	}
 	@Override
 	public void onUpdate(double t) {
-	
+		if(speedX != 0) {
+			entity.translateX(speedX*t);
+		}
+		if(speedY != 0) {
+			entity.translateY(speedY*t);
+		}
 	}
 	
 	public void moveUp() {
-		entity.translateY(-2);
+		speedY = -100;
+		speedX = 0;
 		texture.loopAnimationChannel(animWalkUp);
 	}
 	
 	public void moveDown() {
-		
+		speedY = 100;
+		speedX = 0;
 		texture.loopAnimationChannel(animWalkDown);
 		entity.translateY(2);
 	}
 	
 	public void moveLeft() {
+		speedX = -100;
+		speedY = 0;
 		entity.translateX(-2);
 		texture.loopAnimationChannel(animWalkLeft);
 	
 	}
 	public void moveRight() {
+		speedX = 100;
+		speedY = 0;
 		entity.translateX(2);
 		texture.loopAnimationChannel(animWalkRight);
 		
