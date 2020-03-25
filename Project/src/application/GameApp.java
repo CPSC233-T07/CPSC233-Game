@@ -10,6 +10,8 @@ import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.texture.Texture;
+
+import entities.AnimationComponent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -49,7 +51,7 @@ GitHub
  *  
  */
 
-public class GameMain extends GameApplication {
+public class GameApp extends GameApplication {
 
 	private Entity player;
 	
@@ -79,8 +81,7 @@ public class GameMain extends GameApplication {
 		//		.buildAndAttach(getGameWorld());
 		
 		player=FXGL.entityBuilder().at(300,300)
-				.viewWithBBox(new Rectangle(20,20, Color.BLUE))
-				//.with(new CharacterControl())
+				.with(new AnimationComponent())
 				.with(new CollidableComponent(true))
 				.buildAndAttach();
 				
@@ -101,33 +102,25 @@ public class GameMain extends GameApplication {
 		input.addAction(new UserAction("Move Right") {
 			@Override
 			protected void onAction() {
-				player.translateX(2);
-				//getGameState().increment("pixelsMoved", +5);
-				//player.getComponent(CharacterControl.class).moveRight();
+				player.getComponent(AnimationComponent.class).moveRight();
 			}
 		}, KeyCode.D);
 		input.addAction(new UserAction("Move Left") {
 			@Override
 			protected void onAction() {
-				player.translateX(-2);
-				//getGameState().increment("pixelsMoved", -5);
-				//player.getComponent(CharacterControl.class).moveLeft();
+				player.getComponent(AnimationComponent.class).moveLeft();
 			}
 		}, KeyCode.A);
 		input.addAction(new UserAction("Move Up") {
 			@Override
 			protected void onAction() {
-				player.translateY(-2);
-				//getGameState().increment("pixelsMoved", -5);
-				//player.getComponent(CharacterControl.class).moveUp();
+				player.getComponent(AnimationComponent.class).moveUp();
 			}
 		}, KeyCode.W);
 		input.addAction(new UserAction("Move Down") {
 			@Override
 			protected void onAction() {
-				player.translateY(2);
-				//getGameState().increment("pixelsMoved", +5);
-				//player.getComponent(CharacterControl.class).moveDown();
+				player.getComponent(AnimationComponent.class).moveDown();
 			}
 		}, KeyCode.S);
 		
