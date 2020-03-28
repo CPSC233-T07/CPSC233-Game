@@ -9,6 +9,9 @@ import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.app.scene.FXGLMenu;
+import com.almasb.fxgl.app.scene.MenuType;
+import com.almasb.fxgl.app.scene.SceneFactory;
 import com.almasb.fxgl.texture.Texture;
 
 import entities.AnimationComponent;
@@ -65,6 +68,9 @@ public class GameApp extends GameApplication {
 		settings.setHeight(20*32);
 		settings.setTitle("Basic Game App");
 		settings.setVersion("0.1");
+		
+		//settings.setMenuEnabled(true);
+		//settings.setSceneFactory(new MenuFactory());
 	}
 
 	
