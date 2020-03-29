@@ -10,5 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL11.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL0.5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL"/>
+	<classpathentry kind="lib" path="C:/Users/Liana/Downloads/fxgl-11.8-uber.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

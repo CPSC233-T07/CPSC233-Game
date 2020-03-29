@@ -13,6 +13,7 @@ import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
 import com.almasb.fxgl.app.scene.SceneFactory;
 import com.almasb.fxgl.texture.Texture;
+//import com.almasb.fxgl.scene.Viewport;
 
 import entities.AnimationComponent;
 import javafx.scene.input.KeyCode;
@@ -61,13 +62,16 @@ public class GameApp extends GameApplication {
 	private Entity enemy;
 	private Entity map;
 	
+	private static final int MAP_WIDTH = 20*32;
+	private static final int MAP_HEIGHT = 20*32;
+	
 /*
  * initialize basic settings.
  */
 	@Override
 	protected void initSettings(GameSettings settings) {
-		settings.setWidth(20*32);
-		settings.setHeight(20*32);
+		settings.setWidth(MAP_WIDTH);
+		settings.setHeight(MAP_HEIGHT);
 		settings.setTitle("Basic Game App");
 		settings.setVersion("0.1");
 		
@@ -87,13 +91,16 @@ public class GameApp extends GameApplication {
 		//		.viewFromNodeWithBBox(new Rectangle(20,20, Color.BLUE))
 		//		.with(new CollidableComponent(true))
 		//		.buildAndAttach(getGameWorld());
+		
 		map = FXGL.entityBuilder()
 				.view("BigMap.png")
 				.buildAndAttach();
-		player=FXGL.entityBuilder().at(400,400)
+		player=FXGL.entityBuilder().at(MAP_WIDTH/2, MAP_HEIGHT/2)
 				.with(new AnimationComponent("CharacterSprite.png"))
 				.with(new CollidableComponent(true))
 				.buildAndAttach();
+		
+		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player but there's an issue with getGamseScene() and viewport
 				
 				
 		enemy=FXGL.entityBuilder().at(350,350)

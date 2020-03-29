@@ -75,11 +75,13 @@ public class AnimationComponent extends Component{
         	 if (speedY > 0) {
         		 if(texture.getAnimationChannel() != animWalkV) {
              		texture.loopAnimationChannel(animWalkV);
+             		direction = Direction.DOWN; 
              	}
         	 }	 
         	else if(speedY < 0) {
         		if(texture.getAnimationChannel() != animWalkUp) {
                   texture.loopAnimationChannel(animWalkUp);
+                  direction = Direction.UP;
                  } 
         	}
                  speedY = (int) (speedY * 0.1);
@@ -87,7 +89,14 @@ public class AnimationComponent extends Component{
 
                  if (FXGLMath.abs(speedY) < 1) {
                      speedY = 0;
-                     texture.loopAnimationChannel(animStopU);
+                     if (direction == Direction.DOWN)
+                     {
+                    	 texture.loopAnimationChannel(animStopV);
+                     }
+                     else
+                     {
+                    	 texture.loopAnimationChannel(animStopU);
+                     }
                      moving  = false;
                  }
         	 
