@@ -59,6 +59,7 @@ public class GameApp extends GameApplication {
 	private Entity player;
 	
 	private Entity enemy;
+	private Entity map;
 	
 /*
  * initialize basic settings.
@@ -86,14 +87,16 @@ public class GameApp extends GameApplication {
 		//		.viewFromNodeWithBBox(new Rectangle(20,20, Color.BLUE))
 		//		.with(new CollidableComponent(true))
 		//		.buildAndAttach(getGameWorld());
-		
-		player=FXGL.entityBuilder().at(300,300)
+		map = FXGL.entityBuilder()
+				.view("BigMap.png")
+				.buildAndAttach();
+		player=FXGL.entityBuilder().at(400,400)
 				.with(new AnimationComponent("CharacterSprite.png"))
 				.with(new CollidableComponent(true))
 				.buildAndAttach();
 				
 				
-		enemy=FXGL.entityBuilder().at(200,200)
+		enemy=FXGL.entityBuilder().at(350,350)
 				.with(new AnimationComponent("froggySprite.png"))
 				.with(new CollidableComponent(true))
 				.buildAndAttach();

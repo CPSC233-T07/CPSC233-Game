@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="Project/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -8,6 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL11.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL0.5"/>
-	<classpathentry kind="src" path="Project/src"/>
+	<classpathentry kind="lib" path="C:/Users/Benjamin Piette/Documents/fxgl-11.8-uber.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
