@@ -9,6 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL11.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL0.5"/>
-	<classpathentry kind="lib" path="C:/Users/Benjamin Piette/Documents/fxgl-11.8-uber.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FXGL"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
