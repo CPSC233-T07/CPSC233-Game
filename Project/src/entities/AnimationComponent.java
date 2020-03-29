@@ -18,7 +18,7 @@ public class AnimationComponent extends Component{
 	private int speedX=0;
 	private int speedY=0;
 	private static final int MOVE_SPEED = 75;
-	private static final int ANIM_SPEED = 2;
+	private static final int ANIM_SPEED = 1;
 	
 	private boolean moving = false;
 	private enum Direction {RIGHT, LEFT, DOWN, UP};
@@ -28,19 +28,19 @@ public class AnimationComponent extends Component{
 	private AnimationChannel animStopU,animStopV,animStopL,animStopH,animWalkUp,animWalkV,animWalkLeft
 	,animWalkH;
 	
-	public AnimationComponent() {
+	public AnimationComponent(String spriteSheetName) {
 		
 		//Importing sprite sheet, defining frames for each animated direction
-		animStopU=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
-		animStopV=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
-		animStopL=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),12,12);
-		animStopH=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),5,5);
+		animStopU=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
+		animStopV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
+		animStopL=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),12,12);
+		animStopH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),5,5);
 		
 		
-		animWalkUp=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),8,11);
-		animWalkV=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),0,3);
-		animWalkLeft=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),12,15);
-		animWalkH=new AnimationChannel(FXGL.image("CharacterSprite.png"),16,32,32,Duration.seconds(ANIM_SPEED),4,7);
+		animWalkUp=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),8,11);
+		animWalkV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),0,3);
+		animWalkLeft=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),12,15);
+		animWalkH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),4,7);
 		
 		texture = new AnimatedTexture(animStopV);
 	}

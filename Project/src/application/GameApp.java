@@ -58,6 +58,7 @@ public class GameApp extends GameApplication {
 
 	private Entity player;
 	
+	private Entity enemy;
 	
 /*
  * initialize basic settings.
@@ -87,11 +88,15 @@ public class GameApp extends GameApplication {
 		//		.buildAndAttach(getGameWorld());
 		
 		player=FXGL.entityBuilder().at(300,300)
-				.with(new AnimationComponent())
+				.with(new AnimationComponent("CharacterSprite.png"))
 				.with(new CollidableComponent(true))
 				.buildAndAttach();
 				
 				
+		enemy=FXGL.entityBuilder().at(200,200)
+				.with(new AnimationComponent("froggySprite.png"))
+				.with(new CollidableComponent(true))
+				.buildAndAttach();
 		//getGameWorld().spawn("wall");
 		//getGameWorld().spawn("wall2");
 	}
