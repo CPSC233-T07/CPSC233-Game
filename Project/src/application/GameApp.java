@@ -32,7 +32,7 @@ GitHub
  * 			Task - implement a menu for the game on start-up
  * 			Note - This is deep in to the tutorial so idk if you will need any extra things, you shouldn't, but just letting you know
  * 			Helpful link -  https://github.com/AlmasB/FXGL/wiki/Customizing-Menus
- * Adam:
+ * Adam Cunard:
  * 			Task - Set up a music player to play music in the background as the game plays, work together with Ben to switch the music when the level changes.
  * 			Helpful links - (You may need to know this in case any errors pop up) https://www.tutorialspoint.com/java/java_multithreading.htm
  * 						  - (This tutorial gives a basic idea but I already implemented it here) https://github.com/AlmasB/FXGL/wiki/Adding-Images-and-Sounds
