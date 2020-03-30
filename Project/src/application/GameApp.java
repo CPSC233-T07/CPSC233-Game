@@ -11,12 +11,15 @@ import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
+import com.almasb.fxgl.app.scene.PauseMenu;
 import com.almasb.fxgl.app.scene.SceneFactory;
 import com.almasb.fxgl.texture.Texture;
-//import com.almasb.fxgl.scene.Viewport;
 
 import entities.AnimationComponent;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -75,8 +78,7 @@ public class GameApp extends GameApplication {
 		settings.setTitle("Basic Game App");
 		settings.setVersion("0.1");
 		
-		//settings.setMenuEnabled(true);
-		//settings.setSceneFactory(new MenuFactory());
+		settings.setSceneFactory(new MenuFactory());
 	}
 
 	
@@ -100,8 +102,7 @@ public class GameApp extends GameApplication {
 				.with(new CollidableComponent(true))
 				.buildAndAttach();
 		
-		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player but there's an issue with getGamseScene() and viewport
-				
+		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player
 				
 		enemy=FXGL.entityBuilder().at(350,350)
 				.with(new AnimationComponent("froggySprite.png"))
@@ -166,9 +167,7 @@ public class GameApp extends GameApplication {
 		
 		brickTexture.setTranslateX(50);
 		brickTexture.setTranslateY(450);
-		
-		//getGameScene().addUINode(textPixels);
-		//getGameScene().addUINode(brickTexture);
+
 		textPixels.textProperty().bind(FXGL.getGameState().intProperty("pixelsMoved").asString());
 	}
 	
@@ -179,8 +178,5 @@ public class GameApp extends GameApplication {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
-
-
 
 }

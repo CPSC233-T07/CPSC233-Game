@@ -1,6 +1,5 @@
 package entities;
 
-
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
@@ -17,7 +16,7 @@ public class AnimationComponent extends Component{
 	
 	private int speedX=0;
 	private int speedY=0;
-	private static final int MOVE_SPEED = 75;
+	private static final int MOVE_SPEED = 100;
 	private static final int ANIM_SPEED = 1;
 	
 	private boolean moving = false;
