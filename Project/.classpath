@@ -8,6 +8,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Liana/Downloads/fxgl-11.8-uber.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

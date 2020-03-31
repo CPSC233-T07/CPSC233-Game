@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
@@ -12,23 +15,28 @@ import javafx.util.Duration;
 
 
 
-public class AnimationComponent extends Component{
+public class PlayerAnimationComponent extends Component{
 	
-	private int speedX=0;
-	private int speedY=0;
-	private static final int MOVE_SPEED = 100;
+	private static int speedX=0;
+	private static int speedY=0;
+	public static int moveSpeed = 100;
 	private static final int ANIM_SPEED = 1;
 	
+	public static ArrayList<Direction> validDirections = new ArrayList<Direction>();
+	
+	private boolean colliding;
+	private Direction collisionDirection;
+	
 	private boolean moving = false;
-	private enum Direction {RIGHT, LEFT, DOWN, UP};
-	private Direction direction = Direction.DOWN;
+
+	private static Direction direction = Direction.DOWN;
 	
 	private AnimatedTexture texture;
 	private AnimationChannel animStopU,animStopV,animStopL,animStopH,animWalkUp,animWalkV,animWalkLeft
 	,animWalkH;
 	
-	public AnimationComponent(String spriteSheetName) {
-		
+	public PlayerAnimationComponent(String spriteSheetName) {
+		validDirections = resetValidDirections();
 		//Importing sprite sheet, defining frames for each animated direction
 		animStopU=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
 		animStopV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
@@ -52,11 +60,9 @@ public class AnimationComponent extends Component{
 	}
 	@Override
 	public void onUpdate(double tpf) {
-		
+				
         entity.translateX(speedX * tpf);
         entity.translateY(speedY * tpf);
-        
-        System.out.println("X: "+ speedX +", Y: "+speedY);
         
         if (speedX != 0) {
         	if(texture.getAnimationChannel() != animWalkH) {
@@ -100,59 +106,65 @@ public class AnimationComponent extends Component{
                  }
         	 
         }
-//        System.out.println(moving);
-//        System.out.println(direction);
-//        if(moving) {
-//			switch (direction) {
-//			case DOWN:
-//				texture.loopAnimationChannel(animWalkDown);
-//			case UP:
-//				texture.loopAnimationChannel(animWalkUp);
-//			case LEFT:
-//				texture.loopAnimationChannel(animWalkLeft);
-//			case RIGHT:
-//				texture.loopAnimationChannel(animWalkRight);
-//			}
-//        }else {
-//        	switch (direction) {
-//			case DOWN:
-//				texture.loopAnimationChannel(animStopD );
-//			case UP:
-//				texture.loopAnimationChannel(animStopU);
-//			case LEFT:
-//				texture.loopAnimationChannel(animStopL);
-//			case RIGHT:
-//				texture.loopAnimationChannel(animStopR);
-//			}
-//        }
-//        
+        
+   
 	}
 	
 	public void moveUp() {
-		speedY = -MOVE_SPEED;
-		speedX = 0;
-		direction = Direction.UP;
+		if(validDirections.contains(Direction.UP)) {
+			speedY = -moveSpeed;
+			speedX = 0;
+			direction = Direction.UP;
+			validDirections = resetValidDirections();
+		}
+
 	}
 	public void moveDown() {
-		speedY = MOVE_SPEED;
-		speedX = 0;
-		direction = Direction.DOWN;
+		if(validDirections.contains(Direction.DOWN)) {
+			speedY = moveSpeed;
+			speedX = 0;
+			direction = Direction.DOWN;
+			validDirections = resetValidDirections();
+		}
+
 	}
 	public void moveLeft() {
-		speedX = -MOVE_SPEED;
-		speedY = 0;
-		getEntity().setScaleX(-1);
-		direction = Direction.LEFT;
+		if(validDirections.contains(Direction.LEFT)) {
+			speedX = -moveSpeed;
+			speedY = 0;
+			getEntity().setScaleX(-1);
+			direction = Direction.LEFT;
+			validDirections = resetValidDirections();
+		}
+
 	}
 	public void moveRight() {
-		speedX = MOVE_SPEED;
-		speedY = 0;	
-		getEntity().setScaleX(1);
-		direction = Direction.RIGHT;
+		if(validDirections.contains(Direction.RIGHT)) {
+			speedX = moveSpeed;
+			speedY = 0;	
+			getEntity().setScaleX(1);
+			direction = Direction.RIGHT;
+			validDirections = resetValidDirections();
+		}
+
 	}
 	
+	public static Direction getDirection() {
+		return direction;
+	}
+
 	
-	
+
+	private ArrayList<Direction> resetValidDirections() {
+		ArrayList<Direction> d = new ArrayList<Direction>();
+		
+		d.add(Direction.UP);
+		d.add(Direction.DOWN);
+		d.add(Direction.RIGHT);
+		d.add(Direction.LEFT);
+		
+		return d;
+	}
 	
 	
 
