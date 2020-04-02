@@ -8,10 +8,14 @@ import com.almasb.fxgl.texture.AnimationChannel;
 import javafx.geometry.Point2D;
 import javafx.util.Duration;
 
+/*
+ * Creates NPCs that walk in squares.
+ */
+
 public class NPCAnimationComponent extends Component{
 	
 	private AnimatedTexture texture;
-	private AnimationChannel animStopU,animStopV,animStopH,animWalkUp,animWalkV,animWalkH;
+	private AnimationChannel animWalkUp,animWalkV,animWalkH;
 	public static int moveSpeed = 2;
 	private static final int ANIM_SPEED = 1;
 	
@@ -24,10 +28,6 @@ public class NPCAnimationComponent extends Component{
 	Direction direction = Direction.RIGHT;
 	
 	public NPCAnimationComponent(String spriteSheetName) {
-		animStopU=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
-		animStopV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
-		animStopH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),5,5);
-		
 		
 		animWalkUp=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),8,11);
 		animWalkV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),0,3);

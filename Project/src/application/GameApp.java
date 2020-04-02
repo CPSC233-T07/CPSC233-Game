@@ -1,39 +1,22 @@
 package application;
 
-import java.util.Map;
-
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.components.CollidableComponent;
-import com.almasb.fxgl.entity.level.Level;
-import com.almasb.fxgl.entity.level.text.TextLevelLoader;
-import com.almasb.fxgl.event.EventBus;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.app.scene.FXGLMenu;
-import com.almasb.fxgl.app.scene.MenuType;
-import com.almasb.fxgl.app.scene.PauseMenu;
-import com.almasb.fxgl.app.scene.SceneFactory;
-import com.almasb.fxgl.texture.Texture;
-import java.util.ArrayList;
-
-
 import entities.PlayerAnimationComponent;
 import entities.Direction;
 import entities.EntityType;
 import entities.GameEntityFactory;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import ui.MenuFactory;
 
+/*
+ * Initialization of all basic components of the game using the FXGL library.
+ */
 
 public class GameApp extends GameApplication {
 
@@ -60,23 +43,28 @@ public class GameApp extends GameApplication {
 
 	
 	/*
-	 * Initialize the player entity.
+	 * Initialize the game.
 	 */
 	@Override
 	protected void initGame() {
 		
-		map = FXGL.entityBuilder()
+		map = FXGL.entityBuilder() 			//Initialize the game map
 				.view("EmptyMap.png")
 				.buildAndAttach();
-		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());
 		
-		player = FXGL.spawn("player");
-		enemy = FXGL.spawn("enemy");
-		FXGL.spawn("blueHouse", 400, 400);
+		
+		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
+		
+		player = FXGL.spawn("player");		//spawn in the player
+		enemy = FXGL.spawn("enemy",600,600);
+		
+		spawnBarriers(); //@Mckenzie, when making the map use this function to place the pieces where you want.
+		
 				
 
 		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player
 	}
+
 
 	/*
 	 * Initializes the input of the game
@@ -117,9 +105,6 @@ public class GameApp extends GameApplication {
 		    protected void onActionBegin() {
 		        FXGL.play("sound.wav");
 		    	
-//		    	map = FXGL.entityBuilder()
-//						.view("BigMap.png")
-//						.buildAndAttach();
 		    }
 		}, KeyCode.F); 
 		
@@ -148,31 +133,9 @@ public class GameApp extends GameApplication {
 		
 	}
 	
-	/*s
-	 * Initialize the UI of the game, not much here for now, lets change that.d
+	/*
+	 * Starts the collision detection when the physics engine senses a collision
 	 */
-	
-	@Override
-	protected void initUI() {
-		Text textPixels = new Text();
-		Texture brickTexture = FXGL.getAssetLoader().loadTexture("brick.png");
-		
-		textPixels.setTranslateX(50);
-		textPixels.setTranslateY(100);
-		
-		brickTexture.setTranslateX(50);
-		brickTexture.setTranslateY(450);
-
-	}
-	
-	protected void initGameVars(Map<String, Object> vars) {
-		vars.put("pixelsMoved",0);
-	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
 	private void startCollision() {
 		FXGL.play("bump.wav");
 		Direction direction = PlayerAnimationComponent.getDirection();
@@ -197,4 +160,17 @@ public class GameApp extends GameApplication {
 		}
 		System.out.println(PlayerAnimationComponent.validDirections);
 	}
+	
+	/*
+	 * Spawns every entity of the barrier type.
+	 */
+	private void spawnBarriers() {
+		FXGL.spawn("blueHouse", 400, 400);
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
 }

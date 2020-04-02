@@ -12,6 +12,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+/*
+ * A custom pause menu when pausing the game using "esc"
+ */
+
+
 public class CustomPauseMenu extends PauseMenu{
 
 	private Animation<?> animation;

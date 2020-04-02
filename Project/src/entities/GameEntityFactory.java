@@ -18,7 +18,11 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 
 
-
+/*
+ * This class defines everything that is used in FXGL.spawn()
+ * implements entity factory to spawn in entities to the game window
+ * and returns said entities if needed for variables
+ */
 public class GameEntityFactory implements EntityFactory{
 	
 	
@@ -34,7 +38,7 @@ public class GameEntityFactory implements EntityFactory{
 	}
 	@Spawns("enemy")
 	public Entity newEnemy(SpawnData data) {
-		Entity enemy=FXGL.entityBuilder().at(600,600)
+		Entity enemy=FXGL.entityBuilder().at(data.getX(),data.getY())
 				.type(EntityType.FROGGY)
 				.with(new NPCAnimationComponent("froggysprite.png"))
 				.with(new CollidableComponent(true))
@@ -45,7 +49,7 @@ public class GameEntityFactory implements EntityFactory{
 	
 	@Spawns("blueHouse")
 	public Entity newblueHouse(SpawnData data) {
-		Entity blueHouse = FXGL.entityBuilder().at(400,400)
+		Entity blueHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
 				.type(EntityType.BARRIER)
 				.with(new BarrierComponent())
 				.with(new CollidableComponent(true))

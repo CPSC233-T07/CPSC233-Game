@@ -13,7 +13,9 @@ import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
-
+/*
+ * Initializes the walking for the player and animates the sprite.
+ */
 
 public class PlayerAnimationComponent extends Component{
 	
