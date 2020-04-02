@@ -24,29 +24,22 @@ public class PlayerAnimationComponent extends Component{
 	
 	public static ArrayList<Direction> validDirections = new ArrayList<Direction>();
 	
-	private boolean colliding;
-	private Direction collisionDirection;
-	
-	private boolean moving = false;
 
 	private static Direction direction = Direction.DOWN;
 	
 	private AnimatedTexture texture;
-	private AnimationChannel animStopU,animStopV,animStopL,animStopH,animWalkUp,animWalkV,animWalkLeft
-	,animWalkH;
+	private AnimationChannel animStopU,animStopV,animStopH,animWalkUp,animWalkV,animWalkH;
 	
 	public PlayerAnimationComponent(String spriteSheetName) {
 		validDirections = resetValidDirections();
 		//Importing sprite sheet, defining frames for each animated direction
 		animStopU=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
 		animStopV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
-		animStopL=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),12,12);
 		animStopH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),5,5);
 		
 		
 		animWalkUp=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),8,11);
 		animWalkV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),0,3);
-		animWalkLeft=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),12,15);
 		animWalkH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),4,7);
 		
 		texture = new AnimatedTexture(animStopV);
@@ -69,12 +62,10 @@ public class PlayerAnimationComponent extends Component{
         		texture.loopAnimationChannel(animWalkH);
         	}
             speedX = (int) (speedX * 0.1);
-            moving = true;
 
             if (FXGLMath.abs(speedX) < 1) {
                 speedX =  0;
                 texture.loopAnimationChannel(animStopH);
-                moving = false;
             }
         }else if (speedY != 0) {
         	 if (speedY > 0) {
@@ -90,7 +81,6 @@ public class PlayerAnimationComponent extends Component{
                  } 
         	}
                  speedY = (int) (speedY * 0.1);
-                 moving  = true;
 
                  if (FXGLMath.abs(speedY) < 1) {
                      speedY = 0;
@@ -102,7 +92,6 @@ public class PlayerAnimationComponent extends Component{
                      {
                     	 texture.loopAnimationChannel(animStopU);
                      }
-                     moving  = false;
                  }
         	 
         }

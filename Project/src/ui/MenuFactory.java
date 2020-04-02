@@ -12,4 +12,5 @@ public class MenuFactory extends SceneFactory{
 		newMenu.MyPauseMenu();
 		return newMenu;
 	}
+	
 }

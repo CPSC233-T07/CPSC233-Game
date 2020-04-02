@@ -70,23 +70,10 @@ public class GameApp extends GameApplication {
 				.buildAndAttach();
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());
 		
-//		player=FXGL.entityBuilder().at(MAP_WIDTH/2, MAP_HEIGHT/2)
-//				.type(EntityType.PLAYER)
-//				.with(new AnimationComponent("CharacterSprite.png"))
-//				.with(new CollidableComponent(true))
-//				.buildAndAttach();
-		
-				
-//		enemy=FXGL.entityBuilder().at(350,350)
-//				.type(EntityType.FROGGY)
-//				.with(new AnimationComponent("froggySprite.png"))
-//				.with(new CollidableComponent(true))
-//				.buildAndAttach();
-		
 		player = FXGL.spawn("player");
-		//enemy = FXGL.spawn("enemy");
+		enemy = FXGL.spawn("enemy");
 		FXGL.spawn("blueHouse", 400, 400);
-		
+				
 
 		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player
 	}
@@ -129,6 +116,10 @@ public class GameApp extends GameApplication {
 		    @Override
 		    protected void onActionBegin() {
 		        FXGL.play("sound.wav");
+		    	
+//		    	map = FXGL.entityBuilder()
+//						.view("BigMap.png")
+//						.buildAndAttach();
 		    }
 		}, KeyCode.F); 
 		
@@ -183,6 +174,7 @@ public class GameApp extends GameApplication {
 	}
 	
 	private void startCollision() {
+		FXGL.play("bump.wav");
 		Direction direction = PlayerAnimationComponent.getDirection();
 		System.out.println(PlayerAnimationComponent.validDirections);
 		switch(direction) {

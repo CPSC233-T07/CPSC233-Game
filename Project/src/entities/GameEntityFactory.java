@@ -36,9 +36,9 @@ public class GameEntityFactory implements EntityFactory{
 	public Entity newEnemy(SpawnData data) {
 		Entity enemy=FXGL.entityBuilder().at(600,600)
 				.type(EntityType.FROGGY)
-				.with(new NPCAnimationComponent())
+				.with(new NPCAnimationComponent("froggysprite.png"))
 				.with(new CollidableComponent(true))
-				.viewWithBBox("froggysprite.png")
+				.viewWithBBox("bbox.png")
 				.build();
 		return enemy;
 	}
