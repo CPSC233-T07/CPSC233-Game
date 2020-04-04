@@ -51,6 +51,7 @@ public class GameApp extends GameApplication {
 		map = FXGL.entityBuilder() 			//Initialize the game map
 				.view("EmptyMap.png")
 				.buildAndAttach();
+	        FXGL.play("soundtrack.wav");
 		
 		
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
