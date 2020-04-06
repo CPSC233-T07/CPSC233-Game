@@ -21,7 +21,7 @@ public class PlayerAnimationComponent extends Component{
 	
 	private static int speedX=0;
 	private static int speedY=0;
-	public static int moveSpeed = 100;
+	public static int moveSpeed = 200;
 	private static final int ANIM_SPEED = 1;
 	
 	public static ArrayList<Direction> validDirections = new ArrayList<Direction>();
