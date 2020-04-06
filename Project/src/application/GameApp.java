@@ -116,7 +116,10 @@ public class GameApp extends GameApplication {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	
 				System.out.println("Colliding With Froggy");
+				FXGL.play("sound.wav");
+				FXGL.play("move.wav");
 				startCollision();
+				
 			}
 			
 		});
@@ -134,6 +137,7 @@ public class GameApp extends GameApplication {
 			protected void onCollisionBegin(Entity player, Entity Barrier) {
 				System.out.println("Colliding With Immoveable Object");
 				System.out.println(player.getHeight());
+				FXGL.play("bump.wav");
 				startCollision();
 				
 			}
@@ -146,25 +150,25 @@ public class GameApp extends GameApplication {
 	 * Starts the collision detection when the physics engine senses a collision
 	 */
 	private void startCollision() {
-		FXGL.play("bump.wav");
+		
 		Direction direction = PlayerAnimationComponent.getDirection();
 		System.out.println(PlayerAnimationComponent.validDirections);
 		switch(direction) {
 		case DOWN:
 			PlayerAnimationComponent.validDirections.remove(Direction.DOWN);
-			player.translateY(-5);
+			player.translateY(-7);
 			break;
 		case UP:
 			PlayerAnimationComponent.validDirections.remove(Direction.UP);
-			player.translateY(+5);
+			player.translateY(+7);
 			break;
 		case LEFT:
 			PlayerAnimationComponent.validDirections.remove(Direction.LEFT);
-			player.translateX(+5);
+			player.translateX(+7);
 			break;
 		case RIGHT:
 			PlayerAnimationComponent.validDirections.remove(Direction.RIGHT);
-			player.translateX(-5);
+			player.translateX(-7);
 			break;
 		}
 		System.out.println(PlayerAnimationComponent.validDirections);
