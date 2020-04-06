@@ -81,7 +81,7 @@ public class GameApp extends GameApplication {
 			protected void onAction() {
 				player.getComponent(PlayerAnimationComponent.class).moveRight();
 			}
-		}, KeyCode.D);
+		}, KeyCode.D );
 		input.addAction(new UserAction("Move Left") {
 			@Override
 			protected void onAction() {
@@ -108,7 +108,6 @@ public class GameApp extends GameApplication {
 		    	
 		    }
 		}, KeyCode.F); 
-		
 	}
 	
 	@Override
@@ -118,6 +117,15 @@ public class GameApp extends GameApplication {
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	
 				System.out.println("Colliding With Froggy");
 				startCollision();
+			}
+			
+		});
+		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.FROGGY, EntityType.PLAYER) {
+			@Override
+			protected void onCollisionBegin(Entity player, Entity Froggy) {	
+				System.out.println("Colliding With Froggy");
+				startCollision();
+				//Start Battle
 			}
 			
 		});
