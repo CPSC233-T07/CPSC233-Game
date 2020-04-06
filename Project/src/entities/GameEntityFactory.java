@@ -47,19 +47,117 @@ public class GameEntityFactory implements EntityFactory{
 		return enemy;
 	}
 	
+	
+	
+	//Barriers
 	@Spawns("blueHouse")
 	public Entity newblueHouse(SpawnData data) {
 		Entity blueHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
 				.type(EntityType.BARRIER)
 				.with(new BarrierComponent())
 				.with(new CollidableComponent(true))
-				.viewWithBBox("blueHouse.png")
+				.viewWithBBox("bluehouse.png")
 				.build();
 		return blueHouse;
 		
 	}
+	
+	@Spawns("redHouse")
+	public Entity newRedHouse(SpawnData data) {
+		Entity redHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("redhouse.png")
+				.build();
+		return redHouse;
+	
+	
 
 	}
+	@Spawns("greenHouse")
+	public Entity newGreenHouse(SpawnData data) {
+		Entity greenHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("greenhouse.png")
+				.build();
+		return greenHouse;
+	
+	
+
+	}
+	
+	@Spawns("lightHouse")
+	public Entity newLightHouse(SpawnData data) {
+		Entity lightHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("lighthouse.png")
+				.build();
+		return lightHouse;
+	
+	
+
+	}
+	
+	@Spawns("tree")
+	public Entity newTree(SpawnData data) {
+		Entity tree = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("tree.png")
+				.build();
+		return tree;
+	
+	
+
+	}
+	@Spawns("appleTree")
+	public Entity newAppleTree(SpawnData data) {
+		Entity appleTree = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("appletree.png")
+				.build();
+		return appleTree;
+	
+	
+
+	}
+	
+	
+	@Spawns("rock")
+	public Entity newRock(SpawnData data) {
+		Entity rock = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("rock.png")
+				.build();
+		return rock;
+	
+	
+
+	}
+	@Spawns("bush")
+	public Entity newBush(SpawnData data) {
+		Entity bush = FXGL.entityBuilder().at(data.getX(), data.getY())
+				.type(EntityType.BARRIER)
+				.with(new BarrierComponent())
+				.with(new CollidableComponent(true))
+				.viewWithBBox("bush.png")
+				.build();
+		return bush;
+	
+	
+
+	}
+}
 		
 	
 
