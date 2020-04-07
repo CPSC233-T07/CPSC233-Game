@@ -6,6 +6,10 @@ import com.almasb.fxgl.app.scene.PauseMenu;
 import com.almasb.fxgl.core.util.EmptyRunnable;
 import com.almasb.fxgl.dsl.FXGL;
 
+import application.GameApp;
+import audio.AudioPlayer;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
@@ -48,7 +52,17 @@ public class CustomPauseMenu extends PauseMenu{
         btnExit.setTranslateY(APP_HEIGHT / 2);
         btnExit.setPrefHeight(BUTTON_HEIGHT);
         btnExit.setPrefWidth(BUTTON_WIDTH);
-        btnExit.setOnMouseClicked(e -> FXGL.getGameController().exit());
+        btnExit.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				FXGL.getGameController().exit();
+				AudioPlayer.setStopAll(true);
+				
+			}
+        	
+        });
+	
         
         Button btnResume = new Button("RESUME");
         btnResume.setTranslateX((APP_WIDTH / 2.0) - (BUTTON_WIDTH / 2));

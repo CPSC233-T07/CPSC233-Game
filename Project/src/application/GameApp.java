@@ -6,7 +6,14 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
+
+import audio.AudioPlayer;
+
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.audio.Audio;
+import com.almasb.fxgl.audio.AudioType;
+import com.almasb.fxgl.audio.Music;
+
 import entities.PlayerAnimationComponent;
 import entities.Direction;
 import entities.EntityType;
@@ -27,7 +34,8 @@ public class GameApp extends GameApplication {
 		
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
-		
+	
+	AudioPlayer a = new AudioPlayer();
 /*
  * initialize basic settings.
  */
@@ -51,7 +59,7 @@ public class GameApp extends GameApplication {
 		map = FXGL.entityBuilder() 			//Initialize the game map
 				.view("EmptyMap.png")
 				.buildAndAttach();
-	        FXGL.play("soundtrack.wav");
+	        a.playAsynchronousLooped("src\\sounds\\soundtrack.wav");
 		
 		
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
@@ -64,9 +72,10 @@ public class GameApp extends GameApplication {
 				
 
 		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player
+		
+	
+
 	}
-
-
 	/*
 	 * Initializes the input of the game
 	 */
@@ -104,7 +113,7 @@ public class GameApp extends GameApplication {
 		input.addAction(new UserAction("Play Sound") {
 		    @Override
 		    protected void onActionBegin() {
-		        FXGL.play("sound.wav");
+		        a.playAsynchronous("src\\sounds\\sound.wav");
 		    	
 		    }
 		}, KeyCode.F); 
@@ -116,8 +125,8 @@ public class GameApp extends GameApplication {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	
 				System.out.println("Colliding With Froggy");
-				FXGL.play("sound.wav");
-				FXGL.play("move.wav");
+				a.playAsynchronous("src\\sounds\\sound.wav");
+				a.playAsynchronous("src\\sounds\\move.wav");
 				startCollision();
 				
 			}
@@ -137,7 +146,7 @@ public class GameApp extends GameApplication {
 			protected void onCollisionBegin(Entity player, Entity Barrier) {
 				System.out.println("Colliding With Immoveable Object");
 				System.out.println(player.getHeight());
-				FXGL.play("bump.wav");
+				a.playAsynchronous("src\\sounds\\bump.wav");
 				startCollision();
 				
 			}
@@ -180,8 +189,7 @@ public class GameApp extends GameApplication {
 	private void spawnBarriers() {
 		
 		FXGL.spawn("lightHouse",420,200);
-		
-		
+				
 		FXGL.spawn("bush",977,681);
 		FXGL.spawn("bush",817,999);
 		FXGL.spawn("rock",870,1064);
