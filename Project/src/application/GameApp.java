@@ -54,7 +54,6 @@ public class GameApp extends GameApplication {
 		
 		battle = false;
 		
-		FXGL.getSettings().getSceneFactory().newGameMenu();
 		settings.setSceneFactory(new MenuFactory());
 		
 		
@@ -261,7 +260,6 @@ public class GameApp extends GameApplication {
 	@Override
 	protected void onUpdate(double TPF) {
 		if(battle) {
-			
 		}
 	}
 	
