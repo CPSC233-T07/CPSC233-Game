@@ -30,7 +30,7 @@ public class GameEntityFactory implements EntityFactory{
 	public Entity newPlayer(SpawnData data) {
 		Entity player=FXGL.entityBuilder().at(GameApp.MAP_WIDTH/2, GameApp.MAP_HEIGHT/2)
 				.type(EntityType.PLAYER)
-				.with(new PlayerAnimationComponent("CharacterSprite.png"))
+				.with(new PlayerAnimationComponent("player.png"))
 				.viewWithBBox("bbox.png")
 				.with(new CollidableComponent(true))
 				.build();

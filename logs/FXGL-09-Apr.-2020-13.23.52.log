@@ -1,0 +1,149 @@
+13:23:47.522 [main                     ] DEBUG GameApplication      - Logger initialized
+13:23:47.551 [main                     ] DEBUG GameApplication      - Logging settings
+Title: FriendMaker2077
+Version: 0.1
+Width: 640
+Height: 640
+Fullscreen: false
+Intro: false
+Menus: false
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class ui.MenuFactory
+
+13:23:48.024 [JavaFX Application Thread] DEBUG GameApplication      - Initializing FXGL
+13:23:48.067 [JavaFX Application Thread] INFO  Engine               - FXGL-11.8 (08.03.2020 09.25) on MAC (J:13.0.2 FX:13.0.2)
+13:23:48.068 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+13:23:48.069 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+13:23:48.315 [JavaFX Application Thread] DEBUG MainWindow           - Creating a JavaFX scene
+13:23:48.433 [JavaFX Application Thread] DEBUG MainWindow           - Target settings size: 640.0 x 640.0
+13:23:48.434 [JavaFX Application Thread] DEBUG MainWindow           - Scaled scene size:    640.0 x 640.0
+13:23:48.434 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (1.0, 1.0)
+13:23:48.438 [JavaFX Application Thread] DEBUG MainWindow           - Set initial scene to FXGLStartupScene
+13:23:48.452 [JavaFX Application Thread] DEBUG MainWindow           - Opening main window
+13:23:48.589 [JavaFX Application Thread] DEBUG MainWindow           - Window border size: (0.0, 22.0)
+13:23:48.589 [JavaFX Application Thread] DEBUG MainWindow           - Scaled size: 640.0 x 640.0
+13:23:48.589 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (1.0, 1.0)
+13:23:48.589 [JavaFX Application Thread] DEBUG MainWindow           - Scene size: 640.0 x 640.0
+13:23:48.590 [JavaFX Application Thread] DEBUG MainWindow           - Stage size: 640.0 x 662.0
+13:23:48.601 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+13:23:48.687 [FXGL Background Thread 1 ] DEBUG WindowService        - Applying CSS: fxgl_dark.css
+13:23:48.688 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/css/fxgl_dark.css
+13:23:48.852 [FXGL Background Thread 1 ] DEBUG WindowService        - Initializing application scenes
+13:23:49.259 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+13:23:49.324 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=640, physics.ppm=50.0
+13:23:49.328 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 640x640
+13:23:49.338 [FXGL Background Thread 1 ] DEBUG Input                - Registered new binding: Resume - Esc
+13:23:49.370 [FXGL Background Thread 1 ] DEBUG Input                - Registered new binding: Pause - Esc
+13:23:49.371 [FXGL Background Thread 1 ] DEBUG WindowService        - Application scenes initialized
+13:23:49.388 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+13:23:49.394 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: /Users/mackenziedalton/git/FINALFriendMaker2077-07-03/system/fxgl.bundle
+13:23:49.405 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+13:23:49.405 [FXGL Background Thread 1 ] INFO  Engine               - FXGL initialization took: 0.796 sec
+13:23:49.409 [FXGL Background Thread 1 ] DEBUG GameApplication      - Loading localizations
+13:23:49.410 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/english.properties
+13:23:49.414 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/french.properties
+13:23:49.417 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/german.properties
+13:23:49.419 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/hungarian.properties
+13:23:49.421 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/russian.properties
+13:23:49.424 [FXGL Background Thread 1 ] DEBUG GameApplication      - Registering font factories with UI factory
+13:23:49.424 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/VarelaRound-Regular.ttf
+13:23:49.473 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/Abel-Regular.ttf
+13:23:49.478 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/lucida_console.ttf
+13:23:49.489 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/Courier-Prime.ttf
+13:23:49.500 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Right - D
+13:23:49.500 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Left - A
+13:23:49.501 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Up - W
+13:23:49.501 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Down - S
+13:23:49.502 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Play Sound - F
+13:23:49.502 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/fxgl_icon.png
+13:23:49.596 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/cursors/fxgl_default.png
+13:23:49.601 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - P
+13:23:49.601 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+13:23:49.602 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+13:23:49.603 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+13:23:49.631 [JavaFX Application Thread] DEBUG FXGLStartupScene     - STARTUP
+13:23:49.631 [JavaFX Application Thread] DEBUG WindowService        - Starting new game
+13:23:49.634 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+13:23:49.649 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLStartupScene and adding to FXGLLoadingScene
+13:23:49.649 [JavaFX Application Thread] DEBUG MainWindow           - FXGLStartupScene -> FXGLLoadingScene
+13:23:49.650 [JavaFX Application Thread] DEBUG WindowService        - Clearing previous game
+13:23:49.650 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+13:23:49.650 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+13:23:49.651 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+13:23:49.654 [FXGL Background Thread 1 ] DEBUG GameApplication      - Initializing game
+13:23:49.675 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/EmptyMap.png
+13:23:50.465 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/CharacterSprite.png
+13:23:50.481 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/CharacterSprite.png
+13:23:50.482 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/CharacterSprite.png
+13:23:50.485 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/CharacterSprite.png
+13:23:50.486 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/CharacterSprite.png
+13:23:50.486 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/CharacterSprite.png
+13:23:50.568 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/bbox.png
+13:23:50.597 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/froggysprite.png
+13:23:50.601 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/froggysprite.png
+13:23:50.602 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/froggysprite.png
+13:23:50.602 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bbox.png
+13:23:50.605 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/lighthouse.png
+13:23:50.613 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/bush.png
+13:23:50.617 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.620 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/rock.png
+13:23:50.625 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/rock.png
+13:23:50.628 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/greenhouse.png
+13:23:50.633 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/tree.png
+13:23:50.637 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.642 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.645 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.647 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/appletree.png
+13:23:50.651 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.653 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.655 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.658 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.661 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.662 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.666 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.695 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.697 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.708 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.711 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.714 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.717 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.719 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.722 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.724 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.730 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.736 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.738 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.744 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.746 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.748 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.757 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.768 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.771 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.773 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.778 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.780 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/bluehouse.png
+13:23:50.785 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.787 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/redhouse.png
+13:23:50.790 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.793 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/redhouse.png
+13:23:50.795 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.798 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bluehouse.png
+13:23:50.800 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.801 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/appletree.png
+13:23:50.803 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/bush.png
+13:23:50.805 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/rock.png
+13:23:50.808 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/tree.png
+13:23:50.811 [FXGL Background Thread 1 ] INFO  GameApplication      - Game initialization took: 1.156 sec
+13:23:50.813 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+13:23:50.871 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLLoadingScene and adding to GameScene
+13:23:50.872 [JavaFX Application Thread] DEBUG MainWindow           - FXGLLoadingScene -> GameScene
+13:23:52.170 [JavaFX Application Thread] DEBUG GameApplication      - Exiting FXGL
+13:23:52.170 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+13:23:52.171 [JavaFX Application Thread] DEBUG SystemBundleService  - Saving FXGL system data
+13:23:52.173 [JavaFX Application Thread] DEBUG FileSystemAccess     - Writing to: /Users/mackenziedalton/git/FINALFriendMaker2077-07-03/system/fxgl.bundle
+13:23:52.177 [JavaFX Application Thread] DEBUG GameApplication      - Shutting down background threads
+13:23:52.177 [JavaFX Application Thread] DEBUG GameApplication      - Closing logger and exiting JavaFX
