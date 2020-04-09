@@ -7,7 +7,7 @@ import com.almasb.fxgl.core.util.EmptyRunnable;
 import com.almasb.fxgl.dsl.FXGL;
 
 import application.GameApp;
-import audio.AudioPlayer;
+import audio.MusicPlayer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
@@ -57,7 +57,7 @@ public class CustomPauseMenu extends PauseMenu{
 			@Override
 			public void handle(ActionEvent arg0) {
 				FXGL.getGameController().exit();
-				AudioPlayer.setStopAll(true);
+				MusicPlayer.setStopAll(true);
 				
 			}
         	

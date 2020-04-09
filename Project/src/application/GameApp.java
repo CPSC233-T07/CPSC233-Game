@@ -7,7 +7,7 @@ import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 
-import audio.AudioPlayer;
+import audio.MusicPlayer;
 
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.audio.Audio;
@@ -18,7 +18,9 @@ import entities.PlayerAnimationComponent;
 import entities.Direction;
 import entities.EntityType;
 import entities.GameEntityFactory;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
 import ui.MenuFactory;
 
 /*
@@ -31,11 +33,15 @@ public class GameApp extends GameApplication {
 	
 	private Entity enemy;
 	private Entity map;
+	
+	testbattle l = new testbattle();
 		
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
 	
-	AudioPlayer a = new AudioPlayer();
+	private boolean battle;
+	
+	MusicPlayer a = new MusicPlayer();
 /*
  * initialize basic settings.
  */
@@ -46,7 +52,12 @@ public class GameApp extends GameApplication {
 		settings.setTitle("FriendMaker2077");
 		settings.setVersion("0.1");
 		
+		battle = false;
+		
+		FXGL.getSettings().getSceneFactory().newGameMenu();
 		settings.setSceneFactory(new MenuFactory());
+		
+		
 	}
 
 	
@@ -59,7 +70,8 @@ public class GameApp extends GameApplication {
 		map = FXGL.entityBuilder() 			//Initialize the game map
 				.view("EmptyMap.png")
 				.buildAndAttach();
-	        a.playAsynchronousLooped("src\\sounds\\soundtrack.wav");
+		
+	    a.playAsynchronousLooped("src\\music\\soundtrack.wav");
 		
 		
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
@@ -113,40 +125,36 @@ public class GameApp extends GameApplication {
 		input.addAction(new UserAction("Play Sound") {
 		    @Override
 		    protected void onActionBegin() {
-		        a.playAsynchronous("src\\sounds\\sound.wav");
+		    	FXGL.play("sound.wav");
 		    	
 		    }
 		}, KeyCode.F); 
 	}
 	
+	
+	
 	@Override
 	protected void initPhysics() {
 		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.FROGGY) {
 			@Override
-			protected void onCollisionBegin(Entity player, Entity Froggy) {	
+			protected void onCollisionBegin(Entity player, Entity Froggy) {	//New collision Detection between player and froggy
 				System.out.println("Colliding With Froggy");
-				a.playAsynchronous("src\\sounds\\sound.wav");
-				a.playAsynchronous("src\\sounds\\move.wav");
+				FXGL.play("sound.wav");
+				FXGL.play("move.wav");
 				startCollision();
+				battle = true;
+				//Start battle
 				
 			}
 			
 		});
-		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.FROGGY, EntityType.PLAYER) {
-			@Override
-			protected void onCollisionBegin(Entity player, Entity Froggy) {	
-				System.out.println("Colliding With Froggy");
-				startCollision();
-				//Start Battle
-			}
-			
-		});
+
 		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.BARRIER) {
 			@Override
-			protected void onCollisionBegin(Entity player, Entity Barrier) {
+			protected void onCollisionBegin(Entity player, Entity Barrier) { //New collision Detection between player and barrier.
 				System.out.println("Colliding With Immoveable Object");
 				System.out.println(player.getHeight());
-				a.playAsynchronous("src\\sounds\\bump.wav");
+				FXGL.play("bump.wav");
 				startCollision();
 				
 			}
@@ -164,20 +172,20 @@ public class GameApp extends GameApplication {
 		System.out.println(PlayerAnimationComponent.validDirections);
 		switch(direction) {
 		case DOWN:
-			PlayerAnimationComponent.validDirections.remove(Direction.DOWN);
-			player.translateY(-7);
+			PlayerAnimationComponent.validDirections.remove(Direction.DOWN); //Make the player not able to move down.
+			player.translateY(-7); //Move the player up 7 pixels to prevent moving through wall
 			break;
 		case UP:
-			PlayerAnimationComponent.validDirections.remove(Direction.UP);
-			player.translateY(+7);
+			PlayerAnimationComponent.validDirections.remove(Direction.UP); //Make the player not able to move up.
+			player.translateY(+7); //Move the player down 7 pixels to prevent moving through wall
 			break;
 		case LEFT:
-			PlayerAnimationComponent.validDirections.remove(Direction.LEFT);
-			player.translateX(+7);
+			PlayerAnimationComponent.validDirections.remove(Direction.LEFT); //Make the player not able to move left.
+			player.translateX(+7); //Move the player right 7 pixels to prevent moving through wall
 			break;
 		case RIGHT:
-			PlayerAnimationComponent.validDirections.remove(Direction.RIGHT);
-			player.translateX(-7);
+			PlayerAnimationComponent.validDirections.remove(Direction.RIGHT); //Make the player not able to move right.
+			player.translateX(-7); //Move the player left 7 pixels to prevent moving through wall
 			break;
 		}
 		System.out.println(PlayerAnimationComponent.validDirections);
@@ -248,6 +256,13 @@ public class GameApp extends GameApplication {
 		FXGL.spawn("tree",1617,1870);
 		
 		
+	}
+	
+	@Override
+	protected void onUpdate(double TPF) {
+		if(battle) {
+			
+		}
 	}
 	
 	public static void main(String[] args) {
