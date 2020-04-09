@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -13,6 +15,8 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.audio.Audio;
 import com.almasb.fxgl.audio.AudioType;
 import com.almasb.fxgl.audio.Music;
+import com.almasb.fxgl.cutscene.Cutscene;
+import com.almasb.fxgl.cutscene.dialogue.DialogueGraph;
 
 import entities.PlayerAnimationComponent;
 import entities.Direction;
@@ -38,6 +42,8 @@ public class GameApp extends GameApplication {
 		
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
+	
+	private ArrayList<String> froggyDialogue = new ArrayList<String>();
 	
 	private boolean battle;
 	
@@ -70,8 +76,7 @@ public class GameApp extends GameApplication {
 				.view("EmptyMap.png")
 				.buildAndAttach();
 		
-	    a.playAsynchronousLooped("src\\music\\soundtrack.wav");
-		
+		FXGL.loopBGM("soundtrack.wav");
 		
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
 		
@@ -80,11 +85,13 @@ public class GameApp extends GameApplication {
 		
 		spawnBarriers(); //@Mckenzie, when making the map use this function to place the pieces where you want.
 		
-				
+		froggyDialogue.add("Bad Boy Froggy : Are you running into me punk?");
+		froggyDialogue.add("Bad Boy Froggy : You better get ready to fight then");
+		froggyDialogue.add("Bad Boy Froggy : ITS ON PUNK");
 
 		FXGL.getGameScene().getViewport().bindToEntity(player, player.getX(), player.getY()); //This should let the "camera" follow the player
 		
-	
+		
 
 	}
 	/*
@@ -138,8 +145,9 @@ public class GameApp extends GameApplication {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	//New collision Detection between player and froggy
 				System.out.println("Colliding With Froggy");
-				FXGL.play("sound.wav");
 				FXGL.play("move.wav");
+                FXGL.getCutsceneService().startCutscene(new Cutscene(froggyDialogue));
+				
 				startCollision();
 				battle = true;
 				//Start battle
@@ -254,12 +262,12 @@ public class GameApp extends GameApplication {
 		FXGL.spawn("rock",1500,1870);
 		FXGL.spawn("tree",1617,1870);
 		
-		
 	}
 	
 	@Override
 	protected void onUpdate(double TPF) {
 		if(battle) {
+			DialogueGraph g = new DialogueGraph();
 		}
 	}
 	
