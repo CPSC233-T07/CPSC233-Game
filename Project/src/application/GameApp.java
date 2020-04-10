@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 
 import audio.MusicPlayer;
+import battle.Battle;
+import battle.InvalidMoveFormatException;
 
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.audio.Audio;
@@ -23,9 +26,12 @@ import entities.Spawner;
 import entities.Direction;
 import entities.EntityType;
 import entities.GameEntityFactory;
+import entities.NPCAnimationComponent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import ui.MenuFactory;
 
 /*
@@ -38,9 +44,7 @@ public class GameApp extends GameApplication {
 	
 	private Entity enemy;
 	private Entity map;
-	
-	testbattle l = new testbattle();
-	
+		
 		
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
@@ -148,7 +152,11 @@ public class GameApp extends GameApplication {
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	//New collision Detection between player and froggy
 				System.out.println("Colliding With Froggy");
 				FXGL.play("move.wav");
+				
                 FXGL.getCutsceneService().startCutscene(new Cutscene(froggyDialogue));
+                
+                
+                NPCAnimationComponent.moveSpeed = -NPCAnimationComponent.moveSpeed;
 				
 				startCollision();
 				battle = true;
@@ -214,8 +222,51 @@ public class GameApp extends GameApplication {
 	@Override
 	protected void onUpdate(double TPF) {
 		if(battle) {
-			DialogueGraph g = new DialogueGraph();
+			beginBattle();
 		}
+	}
+	
+	private void beginBattle() {
+		ArrayList<Entity> battleEntities = new ArrayList<Entity>();
+		Level battle = new Level(600,600,battleEntities);
+		
+		FXGL.getGameWorld().setLevel(battle);
+		
+		String[] playerMoves = {"Kiss+5", "Hit-5", "Talk Soothingly+10", "Talk Moistly-10"};
+		String[] enemyMoves = {"Threaten-5", "Intimidate-7", "Bad Boy Vibes-10", "Scoff-2"};
+		
+		try {
+			Battle b = new Battle(player, enemy, 100, 100, playerMoves, enemyMoves);
+		} catch (IndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidMoveFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		VBox moves = new VBox();
+		for(String move : playerMoves) {
+			
+			Button b;
+			if(move.indexOf('-') != -1) {
+				b = new Button(move.substring(0,move.indexOf("-")));
+			}else if(move.indexOf('+') != -1) {
+				b = new Button(move.substring(0,move.indexOf("+")));
+			}else {
+				b = new Button();
+			}
+			
+			moves.getChildren().add(b);
+			
+		}
+		moves.setLayoutX(500);
+		moves.setLayoutY(300);
+		FXGL.addUINode(moves);
+		
+		FXGL.getCutsceneService().onExit();
+		
+		
 	}
 	
 	public static void main(String[] args) {
