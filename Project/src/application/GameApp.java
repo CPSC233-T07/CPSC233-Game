@@ -29,7 +29,10 @@ import entities.GameEntityFactory;
 import entities.NPCAnimationComponent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import ui.MenuFactory;
@@ -52,6 +55,7 @@ public class GameApp extends GameApplication {
 	private ArrayList<String> froggyDialogue = new ArrayList<String>();
 	
 	private boolean battle;
+	boolean battleStarted;
 	
 	MusicPlayer a = new MusicPlayer();
 /*
@@ -64,7 +68,9 @@ public class GameApp extends GameApplication {
 		settings.setTitle("FriendMaker2077");
 		settings.setVersion("0.1");
 		
+		
 		battle = false;
+		battleStarted = false;
 		
 		settings.setSceneFactory(new MenuFactory());
 		
@@ -221,8 +227,9 @@ public class GameApp extends GameApplication {
 	
 	@Override
 	protected void onUpdate(double TPF) {
-		if(battle) {
+		if(!battleStarted && battle) {
 			beginBattle();
+			battleStarted = true;
 		}
 	}
 	
@@ -246,21 +253,49 @@ public class GameApp extends GameApplication {
 		}
 		
 		VBox moves = new VBox();
+		Image button = new Image("file:src\\assets\\textures\\button.png");
+		Image buttonPushed = new Image("file:src\\assets\\textures\\buttonPushed.png");
+		
 		for(String move : playerMoves) {
+			ImageView iv = new ImageView(button);
+			iv.setOnMousePressed((MouseEvent e) -> {
+				iv.setImage(buttonPushed);
+				System.out.println("pressed");
+			});
 			
-			Button b;
-			if(move.indexOf('-') != -1) {
-				b = new Button(move.substring(0,move.indexOf("-")));
-			}else if(move.indexOf('+') != -1) {
-				b = new Button(move.substring(0,move.indexOf("+")));
-			}else {
-				b = new Button();
-			}
+			iv.setOnMouseReleased((MouseEvent e) -> {
+				iv.setImage(button);
+				System.out.println("Released");
+			});
 			
-			moves.getChildren().add(b);
+			System.out.println("Created");
+
+//			if(move.indexOf('-') != -1) {
+//				iv.setOnMousePressed((MouseEvent e) -> {
+//					iv.setImage(buttonPushed);
+//					System.out.println("pressed");
+//				});
+//				
+//				iv.setOnMouseReleased((MouseEvent e) -> {
+//					iv.setImage(button);
+//					System.out.println("Released");
+//				});
+//			}else if(move.indexOf('+') != -1) {
+//				iv.setOnMousePressed((MouseEvent e) -> {
+//					iv.setImage(buttonPushed);
+//					System.out.println("pressed");
+//				});
+//				
+//				iv.setOnMouseReleased((MouseEvent e) -> {
+//					iv.setImage(button);
+//					System.out.println("Released");
+//				});
+//			}
+			
+			moves.getChildren().add(iv);
 			
 		}
-		moves.setLayoutX(500);
+		moves.setLayoutX(300);
 		moves.setLayoutY(300);
 		FXGL.addUINode(moves);
 		
