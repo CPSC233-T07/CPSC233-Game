@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.dsl.FXGL;
@@ -9,12 +10,15 @@ import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
+import com.almasb.fxgl.profile.DataFile;
+import com.almasb.fxgl.core.serialization.Bundle;
 
 import audio.MusicPlayer;
 import battle.Battle;
 import battle.InvalidMoveFormatException;
 
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.app.MenuItem;
 import com.almasb.fxgl.audio.Audio;
 import com.almasb.fxgl.audio.AudioType;
 import com.almasb.fxgl.audio.Music;
@@ -73,7 +77,8 @@ public class GameApp extends GameApplication {
 		battleStarted = false;
 		
 		settings.setSceneFactory(new MenuFactory());
-		
+		settings.setMenuEnabled(true);
+        settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
 		
 	}
 
@@ -303,6 +308,36 @@ public class GameApp extends GameApplication {
 		
 		
 	}
+	
+public DataFile saveState() {
+		
+		Bundle data = new Bundle("Root");
+		data.put("playerX", player.getX());
+		data.put("playerY", player.getY());
+//		data.put("playerHP", );
+//		data.put("level", );
+
+		
+		
+		
+		DataFile d = new DataFile();
+		d.putBundle(data);
+		return d;
+	}
+	
+	public void loadState(DataFile dataFile) {
+
+	    Bundle bundle = (Bundle) dataFile.getBundle("Root");
+	    double X = bundle.get("playerX");
+	    double Y = bundle.get("playerY");
+//	    double HP = bundle.get("playerHP");
+//	    double lvl = bundle.get("level");
+//		data.put("playerHP", );
+//		data.put("level", );
+	    
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		launch(args);
