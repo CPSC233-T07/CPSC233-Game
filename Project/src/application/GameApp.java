@@ -16,7 +16,6 @@ import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.profile.DataFile;
 import com.almasb.fxgl.core.serialization.Bundle;
 
-import audio.MusicPlayer;
 import battle.Battle;
 import battle.InvalidMoveFormatException;
 
@@ -41,7 +40,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import ui.MenuFactory;
 
 /*
@@ -57,18 +58,32 @@ public class GameApp extends GameApplication {
 	
 	private Level roomLevel;
 	private Level mainLevel;
-		
+	
+	private Battle b;
+	private Entity battleMap;
+	boolean battleIsFinished = false;
+	
+	private VBox moves;
+	private StackPane enemyFPPane;
+	private Text enemyFP;
+	private StackPane playerFPPane;
+	private Text playerFP;
+	private StackPane statusPane;
+	private Text status;
+	
 	boolean isInRoom = false;
+	
+	int index = 0;
 	
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
+	
 	
 	private ArrayList<String> froggyDialogue = new ArrayList<String>();
 	
 	private boolean battle;
 	boolean battleStarted;
 	
-	MusicPlayer a = new MusicPlayer();
 /*
  * initialize basic settings.
  */
@@ -97,6 +112,8 @@ public class GameApp extends GameApplication {
 	protected void initGame() {
 		
 		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
+		
+		
 		
 		FXGL.loopBGM("soundtrack.wav");
 		
@@ -195,13 +212,12 @@ public class GameApp extends GameApplication {
 		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.FROGGY) {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Froggy) {	//New collision Detection between player and froggy
-				System.out.println("Colliding With Froggy");
 				FXGL.play("move.wav");
 				
                 FXGL.getCutsceneService().startCutscene(new Cutscene(froggyDialogue));
                 
                 
-                NPCAnimationComponent.moveSpeed = -NPCAnimationComponent.moveSpeed;
+                NPCAnimationComponent.moveSpeed = 0;
 				
 				startCollision();
 				battle = true;
@@ -214,8 +230,7 @@ public class GameApp extends GameApplication {
 		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.BARRIER) {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Barrier) { //New collision Detection between player and barrier.
-				System.out.println("Colliding With Immoveable Object");
-				System.out.println(player.getHeight());
+				
 				FXGL.play("bump.wav");
 				startCollision();
 				
@@ -226,8 +241,7 @@ public class GameApp extends GameApplication {
 		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.HOUSE) {
 			@Override
 			protected void onCollisionBegin(Entity player, Entity Barrier) { //New collision Detection between player and house.
-				System.out.println("Colliding With Immoveable Object");
-				System.out.println(player.getHeight());
+				
 				
 				Direction playerDirection = PlayerAnimationComponent.getDirection();
 				if(playerDirection == Direction.UP)
@@ -264,7 +278,6 @@ public class GameApp extends GameApplication {
 	private void startCollision() {
 		
 		Direction direction = PlayerAnimationComponent.getDirection();
-		System.out.println(PlayerAnimationComponent.validDirections);
 		switch(direction) {
 		case DOWN:
 			PlayerAnimationComponent.validDirections.remove(Direction.DOWN); //Make the player not able to move down.
@@ -283,8 +296,7 @@ public class GameApp extends GameApplication {
 			player.translateX(-7); //Move the player left 7 pixels to prevent moving through wall
 			break;
 		}
-		System.out.println(PlayerAnimationComponent.validDirections);
-	}
+}
 	
 	/*
 	 * Spawns every entity of the barrier type.
@@ -299,81 +311,169 @@ public class GameApp extends GameApplication {
 	
 	@Override
 	protected void onUpdate(double TPF) {
+		
 		if(!battleStarted && battle) {
 			beginBattle();
 			battleStarted = true;
 		}
+		
+		if(battleIsFinished && battleStarted && battle) {
+			battle = false;
+			finishBattle();
+		}
+		
+		if(battleStarted && battle) {
+			updateBattle();
+		}
 	}
 	
-	private void beginBattle() {
-		ArrayList<Entity> battleEntities = new ArrayList<Entity>();
-		Level battle = new Level(600,600,battleEntities);
-		
-		FXGL.getGameWorld().setLevel(battle);
+	private void beginBattle() {		
+		battleMap = FXGL.entityBuilder()
+					.view("battleMap.png")
+					.buildAndAttach();
 		
 		String[] playerMoves = {"Kiss+5", "Hit-5", "Talk Soothingly+10", "Talk Moistly-10"};
 		String[] enemyMoves = {"Threaten-5", "Intimidate-7", "Bad Boy Vibes-10", "Scoff-2"};
 		
 		try {
-			Battle b = new Battle(player, enemy, 100, 100, playerMoves, enemyMoves);
+			b = new Battle(100, 100, playerMoves, enemyMoves);
 		} catch (IndexOutOfBoundsException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvalidMoveFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		
 		VBox moves = new VBox();
 		Image button = new Image("file:src\\assets\\textures\\button.png");
 		Image buttonPushed = new Image("file:src\\assets\\textures\\buttonPushed.png");
 		
 		for(String move : playerMoves) {
+			
+			StackPane buttons = new StackPane();
 			ImageView iv = new ImageView(button);
-			iv.setOnMousePressed((MouseEvent e) -> {
+			Text t = new Text();
+			
+			
+			buttons.setOnMousePressed((MouseEvent e) -> {
 				iv.setImage(buttonPushed);
-				System.out.println("pressed");
 			});
 			
-			iv.setOnMouseReleased((MouseEvent e) -> {
+			buttons.setOnMouseReleased((MouseEvent e) -> {
 				iv.setImage(button);
-				System.out.println("Released");
+				b.playerUseMove(move);
 			});
 			
-			System.out.println("Created");
+			buttons.getChildren().add(iv);
 
-//			if(move.indexOf('-') != -1) {
-//				iv.setOnMousePressed((MouseEvent e) -> {
-//					iv.setImage(buttonPushed);
-//					System.out.println("pressed");
-//				});
-//				
-//				iv.setOnMouseReleased((MouseEvent e) -> {
-//					iv.setImage(button);
-//					System.out.println("Released");
-//				});
-//			}else if(move.indexOf('+') != -1) {
-//				iv.setOnMousePressed((MouseEvent e) -> {
-//					iv.setImage(buttonPushed);
-//					System.out.println("pressed");
-//				});
-//				
-//				iv.setOnMouseReleased((MouseEvent e) -> {
-//					iv.setImage(button);
-//					System.out.println("Released");
-//				});
-//			}
+			if(move.indexOf('-') != -1) {
+				t.setText(move.substring(0,move.indexOf('-')));
+			}else if(move.indexOf('+') != -1) {
+				t.setText(move.substring(0,move.indexOf('+')));
+			}
 			
-			moves.getChildren().add(iv);
+			buttons.getChildren().add(t);
+			
+			moves.getChildren().add(buttons);
+			
+			index++;
 			
 		}
-		moves.setLayoutX(300);
-		moves.setLayoutY(300);
+		moves.setLayoutX(100);
+		moves.setLayoutY(500);
+		this.moves = moves;
 		FXGL.addUINode(moves);
 		
-		FXGL.getCutsceneService().onExit();
+		StackPane enemyFPPane = new StackPane();
+		ImageView enemyFPBar = new ImageView(new Image("file:src\\assets\\textures\\healthBar.png"));
+		Text enemyFP = new Text(b.getEnemyFP());
+		
+		this.enemyFP = enemyFP;
+		this.enemyFPPane = enemyFPPane;
+		
+		enemyFPPane.getChildren().add(enemyFPBar);
+		enemyFPPane.getChildren().add(enemyFP);
 		
 		
+		StackPane playerFPPane = new StackPane();
+		ImageView playerFPBar = new ImageView(new Image("file:src\\assets\\textures\\healthBar.png"));
+		Text playerFP = new Text(b.getPlayerFP());
+		
+		this.playerFP = playerFP;
+		this.playerFPPane = playerFPPane;
+		
+		playerFPPane.getChildren().add(playerFPBar);
+		playerFPPane.getChildren().add(playerFP);
+		
+		enemyFPPane.setLayoutX(100);
+		enemyFPPane.setLayoutY(100);
+		
+		playerFPPane.setLayoutX(100);
+		playerFPPane.setLayoutY(400);
+		
+		FXGL.addUINode(enemyFPPane);
+		FXGL.addUINode(playerFPPane);
+		
+		StackPane statusPane = new StackPane();
+		ImageView statusBox = new ImageView(new Image("file:src\\assets\\textures\\TextBox.png"));
+		Text status = new Text(b.getStatus());
+		
+		statusPane.getChildren().add(statusBox);
+		statusPane.getChildren().add(status);
+		statusPane.setLayoutX(300);
+		statusPane.setLayoutY(500);
+		
+		this.statusPane = statusPane;
+		this.status = status;
+		
+		FXGL.addUINode(statusPane);
+		
+		
+
+		
+		
+	}
+	
+	private void updateBattle(){
+		battleIsFinished = b.isFinished();
+		this.status.setText(b.getStatus());
+		this.playerFP.setText(b.getPlayerFP());
+		this.enemyFP.setText(b.getEnemyFP());
+	}
+	
+	private void finishBattle() {
+		System.out.println("finshing");
+		ArrayList<String> endStatus = new ArrayList<String>();
+		FXGL.removeUINode(statusPane);
+		FXGL.removeUINode(enemyFPPane);
+		FXGL.removeUINode(playerFPPane);
+		FXGL.removeUINode(moves);
+		
+		enemy.removeFromWorld();
+		
+		if(b.getWinner().equals("PlayerF")) {
+			endStatus.add("Player : I won the battle!");
+			endStatus.add("Player : The enemy is now my friend!");
+			endStatus.add("Player : Yay!");
+			System.out.println(b.getWinner());
+		}else if(b.getWinner().equals("PlayerU")) {
+			endStatus.add("Player : I won the battle!");
+			endStatus.add("Player : But I made the enemy sad...");
+			endStatus.add("Player : They are going to go home and cry now...");
+			System.out.println(b.getWinner());
+		}else {
+			endStatus.add("Player : How unfortunate...");
+			endStatus.add("Player : I lost...");
+			endStatus.add("Player : but mom said I can do anything!?");
+			System.out.println(b.getWinner());
+		}
+		
+		FXGL.getCutsceneService().startCutscene(new Cutscene(endStatus));
+		
+		//Adam says he can do this shit so he will.
+		
+
 	}
 	
 public DataFile saveState() {
@@ -403,6 +503,8 @@ public DataFile saveState() {
 //		data.put("level", );
 	    
 	}
+	
+
 	
 	
 	

@@ -159,14 +159,16 @@ public class GameEntityFactory implements EntityFactory{
 	
 
 	}
-//	@Spawns("room")
-//	public Entity newRoom(SpawnData data) {
-//		Entity roomMap = FXGL.entityBuilder().at(data.getX(), data.getY()) 		//Creates the map for the interior of the house, and layers it underneath the large, main map
-//				.view("Room.png")
-//				.with(new IrremovableComponent())
-//				.buildAndAttach();
-//		return roomMap;
-//	}
+	
+	@Spawns("battleMap")
+	public Entity battleMap(SpawnData data) {
+		Entity battleMap = FXGL.entityBuilder()
+							.view("battleMap.png")
+							.build();
+		
+		return battleMap;
+	}
+
 }
 		
 	
