@@ -5,6 +5,7 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.BoundingBoxComponent;
 import com.almasb.fxgl.entity.components.CollidableComponent;
+import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
@@ -33,6 +34,7 @@ public class GameEntityFactory implements EntityFactory{
 				.with(new PlayerAnimationComponent("player.png"))
 				.viewWithBBox("bbox.png")
 				.with(new CollidableComponent(true))
+				.with(new IrremovableComponent())
 				.build();
 		return player;
 	}
@@ -78,7 +80,7 @@ public class GameEntityFactory implements EntityFactory{
 	@Spawns("greenHouse")
 	public Entity newGreenHouse(SpawnData data) {
 		Entity greenHouse = FXGL.entityBuilder().at(data.getX(), data.getY())
-				.type(EntityType.BARRIER)
+				.type(EntityType.HOUSE)
 				.with(new BarrierComponent())
 				.with(new CollidableComponent(true))
 				.viewWithBBox("greenhouse.png")
@@ -157,6 +159,14 @@ public class GameEntityFactory implements EntityFactory{
 	
 
 	}
+//	@Spawns("room")
+//	public Entity newRoom(SpawnData data) {
+//		Entity roomMap = FXGL.entityBuilder().at(data.getX(), data.getY()) 		//Creates the map for the interior of the house, and layers it underneath the large, main map
+//				.view("Room.png")
+//				.with(new IrremovableComponent())
+//				.buildAndAttach();
+//		return roomMap;
+//	}
 }
 		
 	

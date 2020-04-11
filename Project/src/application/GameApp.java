@@ -6,6 +6,9 @@ import java.util.EnumSet;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.SpawnData;
+import com.almasb.fxgl.entity.Spawns;
+import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
@@ -51,8 +54,12 @@ public class GameApp extends GameApplication {
 	
 	private Entity enemy;
 	private Entity map;
+	
+	private Level roomLevel;
+	private Level mainLevel;
 		
-		
+	boolean isInRoom = false;
+	
 	public static final int MAP_WIDTH = 20*32;
 	public static final int MAP_HEIGHT = 20*32;
 	
@@ -89,14 +96,26 @@ public class GameApp extends GameApplication {
 	@Override
 	protected void initGame() {
 		
-		map = FXGL.entityBuilder() 			//Initialize the game map
-				.view("EmptyMap.png")
-				.buildAndAttach();
+		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
 		
 		FXGL.loopBGM("soundtrack.wav");
 		
-		FXGL.getGameWorld().addEntityFactory(new GameEntityFactory());		//Initialize the entity factory to spawn in the entities
+		Entity room1 = FXGL.entityBuilder() 		//Creates the map for the interior of the house, and layers it underneath the large, main map
+				.view("Room.png")
+				.at(670,1275)				
+				.with(new IrremovableComponent())
+				.buildAndAttach();
 		
+		Entity room2 = FXGL.entityBuilder() 		//Creates the map for the interior of the house, and layers it underneath the large, main map
+				.view("Room.png")
+				.at(2256,2260)				
+				.with(new IrremovableComponent())
+				.buildAndAttach();
+			
+		map = FXGL.entityBuilder() 			//Initialize the game map
+				.view("EmptyMap.png")
+				.buildAndAttach();
+
 		player = FXGL.spawn("player");		//spawn in the player
 		enemy = FXGL.spawn("enemy",600,600);
 		
@@ -142,6 +161,21 @@ public class GameApp extends GameApplication {
 			@Override
 			protected void onAction() {
 				player.getComponent(PlayerAnimationComponent.class).moveDown();
+//				
+//				if((player.getY() > 1575) && isInRoom)
+//				{
+//					ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
+//					
+//					entitiesToAdd.add(FXGL.entityBuilder() 			//Initialize the game map
+//							.view("EmptyMap.png")
+//							.build());
+//					
+//					entitiesToAdd.add(FXGL.spawn("enemy",600,600));
+//					
+//					mainLevel = new Level(0,0, entitiesToAdd);
+//					FXGL.getGameWorld().setLevel(mainLevel);
+//					isInRoom = false;
+//				}
 			}
 		}, KeyCode.S);
 		
@@ -189,7 +223,40 @@ public class GameApp extends GameApplication {
 			
 		});
 		
+		FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.HOUSE) {
+			@Override
+			protected void onCollisionBegin(Entity player, Entity Barrier) { //New collision Detection between player and house.
+				System.out.println("Colliding With Immoveable Object");
+				System.out.println(player.getHeight());
+				
+				Direction playerDirection = PlayerAnimationComponent.getDirection();
+				if(playerDirection == Direction.UP)
+				{
+					enterHouse();					//If the player is facing upwards and colliding with a house, the player will enter the house. For now, its been set up to only work on green houses.
+				}
+				else
+				{
+					FXGL.play("bump.wav");
+					startCollision();
+				}
+				
+			}
+			
+		});
 	}
+	/*
+	 * Let's the player enter the house, switching the map to the house interior
+	 */
+	private void enterHouse() {
+		
+		ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
+		
+		roomLevel = new Level(0,0,entitiesToAdd); //no entities are added, so it only keeps the irremovable objects (the player and the room interiors)
+		FXGL.getGameWorld().setLevel(roomLevel);
+		isInRoom = true;
+	}
+	
+	
 	
 	/*
 	 * Starts the collision detection when the physics engine senses a collision

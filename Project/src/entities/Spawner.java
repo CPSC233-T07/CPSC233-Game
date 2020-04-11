@@ -92,4 +92,9 @@ public class Spawner {
 		
 	}
 	
+//	public static void spawnRooms() {	//The rooms are in the same location as the houses.
+//		FXGL.spawn("room", 670,1275);
+//		FXGL.spawn("room", 2256,2260);
+//	}
+//	
 }
