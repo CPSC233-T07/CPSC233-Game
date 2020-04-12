@@ -48,7 +48,7 @@ public class CustomPauseMenu extends PauseMenu{
         //Buttons
         Button btnExit = new Button("EXIT");
         btnExit.setTranslateX((APP_WIDTH / 2.0) - (BUTTON_WIDTH / 2));
-        btnExit.setTranslateY(APP_HEIGHT / 2);
+        btnExit.setTranslateY((APP_HEIGHT / 2) + BUTTON_HEIGHT * 1.25);
         btnExit.setPrefHeight(BUTTON_HEIGHT);
         btnExit.setPrefWidth(BUTTON_WIDTH);
         btnExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -64,12 +64,46 @@ public class CustomPauseMenu extends PauseMenu{
         
         Button btnResume = new Button("RESUME");
         btnResume.setTranslateX((APP_WIDTH / 2.0) - (BUTTON_WIDTH / 2));
-        btnResume.setTranslateY((APP_HEIGHT / 2) - BUTTON_HEIGHT * 1.5);
+        btnResume.setTranslateY((APP_HEIGHT / 2) - BUTTON_HEIGHT * 2.5);
         btnResume.setPrefHeight(BUTTON_HEIGHT);
         btnResume.setPrefWidth(BUTTON_WIDTH);
-        btnResume.setOnMouseClicked(e -> requestHide()); 
+        btnResume.setOnMouseClicked(e -> requestHide());
+        
+        
+        
+        Button btnSave = new Button("SAVE");
+        btnSave.setTranslateX((APP_WIDTH / 2.0) - (BUTTON_WIDTH / 2));
+        btnSave.setTranslateY((APP_HEIGHT / 2) - BUTTON_HEIGHT * 1.25);
+        btnSave.setPrefHeight(BUTTON_HEIGHT);
+        btnSave.setPrefWidth(BUTTON_WIDTH);
+        btnSave.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				//savestate()
+				
+			}
+        	
+        });
+        
+        
+        
+        Button btnLoad = new Button("LOAD");
+        btnLoad.setTranslateX((APP_WIDTH / 2.0) - (BUTTON_WIDTH / 2));
+        btnLoad.setTranslateY(APP_HEIGHT / 2);
+        btnLoad.setPrefHeight(BUTTON_HEIGHT);
+        btnLoad.setPrefWidth(BUTTON_WIDTH);
+        btnLoad.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				//loadState
+				
+			}
+        	
+        });
        
-        getContentRoot().getChildren().addAll(bg, btnExit, btnResume);
+        getContentRoot().getChildren().addAll(bg, btnExit, btnSave, btnResume, btnLoad);
 
         animation = FXGL.animationBuilder()
                 .duration(Duration.seconds(0.66))
@@ -78,6 +112,7 @@ public class CustomPauseMenu extends PauseMenu{
                 .from(new Point2D(0, 0))
                 .to(new Point2D(1, 1))
                 .build();
+        
     }
     
     @Override

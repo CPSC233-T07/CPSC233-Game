@@ -99,7 +99,7 @@ public class GameApp extends GameApplication {
 		battleStarted = false;
 		
 		settings.setSceneFactory(new MenuFactory());
-		settings.setMenuEnabled(true);
+		//settings.setMenuEnabled(true);
         settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
 		
 	}
@@ -499,8 +499,6 @@ public DataFile saveState() {
 	    double Y = bundle.get("playerY");
 //	    double HP = bundle.get("playerHP");
 //	    double lvl = bundle.get("level");
-//		data.put("playerHP", );
-//		data.put("level", );
 	    
 	}
 	
