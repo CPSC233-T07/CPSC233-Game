@@ -182,21 +182,6 @@ public class GameApp extends GameApplication {
 			protected void onAction() {
 				if(!battle)
 					player.getComponent(PlayerAnimationComponent.class).moveDown();
-//					
-//				if((player.getY() > 1575) && isInRoom)
-//				{
-//					ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
-//					
-//					entitiesToAdd.add(FXGL.entityBuilder() 			//Initialize the game map
-//							.view("EmptyMap.png")
-//							.build());
-//					
-//					entitiesToAdd.add(FXGL.spawn("enemy",600,600));
-//					
-//					mainLevel = new Level(0,0, entitiesToAdd);
-//					FXGL.getGameWorld().setLevel(mainLevel);
-//					isInRoom = false;
-//				}
 			}
 		}, KeyCode.S);
 		
@@ -515,8 +500,7 @@ public DataFile saveState() {
 	    Bundle bundle = (Bundle) dataFile.getBundle("Root");
 	    double X = bundle.get("playerX");
 	    double Y = bundle.get("playerY");
-//	    double HP = bundle.get("playerHP");
-//	    double lvl = bundle.get("level");
+
 	    
 	}
 	
