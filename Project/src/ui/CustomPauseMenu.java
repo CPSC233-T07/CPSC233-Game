@@ -1,5 +1,11 @@
 package ui;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.almasb.fxgl.animation.Animation;
@@ -36,11 +42,9 @@ public class CustomPauseMenu extends PauseMenu{
 	
 	private static final double BUTTON_WIDTH = 125;
 	private static final double BUTTON_HEIGHT = 40;
-
-	private boolean dataSaved = false;
 	
-	public double playerX = 0;
-	public double playerY = 0;
+	public String playerX;
+	public String playerY;
 	
     public void MyPauseMenu() {
         getContentRoot().setTranslateX((APP_WIDTH / 2.0) - WINDOW_SIZE);
@@ -89,12 +93,23 @@ public class CustomPauseMenu extends PauseMenu{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				dataSaved = true;
 				ArrayList<Entity> entities = FXGL.getGameWorld().getEntities();
 				Entity player = entities.get(3);
 				
-				playerX = player.getX();
-				playerY = player.getY();
+				playerX = Double.toString(player.getX());
+				playerY = Double.toString(player.getY());
+				
+				try {
+					File save = new File("Save.txt");
+					save.createNewFile();
+					BufferedWriter writer = new BufferedWriter(new FileWriter(save));
+					writer.write(playerX + "," + playerY);
+					writer.close();
+				} catch (IOException e1) {
+
+				}
+				
+				
 				btnSave.setOnMouseClicked(e -> requestHide());			
 			}
         	
@@ -111,15 +126,28 @@ public class CustomPauseMenu extends PauseMenu{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				if(dataSaved){
+
 					ArrayList<Entity> entities = FXGL.getGameWorld().getEntities();
 					Entity player = entities.get(3);
-					player.setX(playerX);
-					player.setY(playerY);
+					
+					
+					try {
+						
+						BufferedReader reader = new BufferedReader(new FileReader("Save.txt"));
+						String[] XY = reader.readLine().split(",");
+						playerX = XY[0];
+						playerY = XY[1];
+						player.setX(Double.parseDouble(playerX));
+						player.setY(Double.parseDouble(playerY));
+						reader.close();
+					} catch (IOException e1) {
+						
+					}
+					
 					btnLoad.setOnMouseClicked(e -> requestHide());
 				}
 				
-			}
+			
         	
         });
        
