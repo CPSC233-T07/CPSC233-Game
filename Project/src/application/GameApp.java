@@ -159,26 +159,30 @@ public class GameApp extends GameApplication {
 		input.addAction(new UserAction("Move Right") {
 			@Override
 			protected void onAction() {
-				player.getComponent(PlayerAnimationComponent.class).moveRight();
+				if(!battle)
+					player.getComponent(PlayerAnimationComponent.class).moveRight();
 			}
 		}, KeyCode.D );
 		input.addAction(new UserAction("Move Left") {
 			@Override
 			protected void onAction() {
-				player.getComponent(PlayerAnimationComponent.class).moveLeft();
+				if(!battle)
+					player.getComponent(PlayerAnimationComponent.class).moveLeft();
 			}
 		}, KeyCode.A);
 		input.addAction(new UserAction("Move Up") {
 			@Override
 			protected void onAction() {
-				player.getComponent(PlayerAnimationComponent.class).moveUp();
+				if(!battle)
+					player.getComponent(PlayerAnimationComponent.class).moveUp();
 			}
 		}, KeyCode.W);
 		input.addAction(new UserAction("Move Down") {
 			@Override
 			protected void onAction() {
-				player.getComponent(PlayerAnimationComponent.class).moveDown();
-//				
+				if(!battle)
+					player.getComponent(PlayerAnimationComponent.class).moveDown();
+//					
 //				if((player.getY() > 1575) && isInRoom)
 //				{
 //					ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
@@ -309,6 +313,10 @@ public class GameApp extends GameApplication {
 		
 	}
 	
+	
+	/*
+	 * Basic update function that updates the game every tick
+	 */
 	@Override
 	protected void onUpdate(double TPF) {
 		
@@ -327,12 +335,13 @@ public class GameApp extends GameApplication {
 		}
 	}
 	
+	
+	/*
+	 * Begins the battle when the player collides with the enemy
+	 */
 	private void beginBattle() {		
-		battleMap = FXGL.entityBuilder()
-					.view("battleMap.png")
-					.buildAndAttach();
 		
-		String[] playerMoves = {"Kiss+5", "Hit-5", "Talk Soothingly+10", "Talk Moistly-10"};
+		String[] playerMoves = {"Kiss+5", "Hit-5", "Talk Soothingly+10", "Talk Moistly-10"};  //Initialize the player and the enemy move-set
 		String[] enemyMoves = {"Threaten-5", "Intimidate-7", "Bad Boy Vibes-10", "Scoff-2"};
 		
 		try {
@@ -345,11 +354,11 @@ public class GameApp extends GameApplication {
 		}
 		
 		
-		VBox moves = new VBox();
+		VBox moves = new VBox(); //Start setting up the UI for the battle
 		Image button = new Image("file:src\\assets\\textures\\button.png");
 		Image buttonPushed = new Image("file:src\\assets\\textures\\buttonPushed.png");
 		
-		for(String move : playerMoves) {
+		for(String move : playerMoves) { // Set up the move buttons
 			
 			StackPane buttons = new StackPane();
 			ImageView iv = new ImageView(button);
@@ -385,7 +394,8 @@ public class GameApp extends GameApplication {
 		this.moves = moves;
 		FXGL.addUINode(moves);
 		
-		StackPane enemyFPPane = new StackPane();
+		
+		StackPane enemyFPPane = new StackPane(); //set up the "health bars" UI nodes
 		ImageView enemyFPBar = new ImageView(new Image("file:src\\assets\\textures\\healthBar.png"));
 		Text enemyFP = new Text(b.getEnemyFP());
 		
@@ -415,7 +425,8 @@ public class GameApp extends GameApplication {
 		FXGL.addUINode(enemyFPPane);
 		FXGL.addUINode(playerFPPane);
 		
-		StackPane statusPane = new StackPane();
+		
+		StackPane statusPane = new StackPane(); //Set up the status box UI node
 		ImageView statusBox = new ImageView(new Image("file:src\\assets\\textures\\TextBox.png"));
 		Text status = new Text(b.getStatus());
 		
@@ -435,6 +446,10 @@ public class GameApp extends GameApplication {
 		
 	}
 	
+	
+	/*
+	 * Update the battle, healthbars and status text
+	 */
 	private void updateBattle(){
 		battleIsFinished = b.isFinished();
 		this.status.setText(b.getStatus());
@@ -442,6 +457,9 @@ public class GameApp extends GameApplication {
 		this.enemyFP.setText(b.getEnemyFP());
 	}
 	
+	/*
+	 * Called when the battle finishes, cleans up the UI, removes unnessassary components and starts an end-of-battle cutscene
+	 */
 	private void finishBattle() {
 		System.out.println("finshing");
 		ArrayList<String> endStatus = new ArrayList<String>();

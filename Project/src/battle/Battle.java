@@ -102,9 +102,9 @@ public class Battle {
 	}
 
 	/*
-	 * Uses a move from the players moveset
+	 * Uses a move from the players move-set
 	 * 
-	 * @param indexOfMove - the index of the move being used
+	 * @param move - the move from the move-set that is being used
 	 *
 	 */
 	public void playerUseMove(String move) {
@@ -124,7 +124,7 @@ public class Battle {
 	}
 
 	/*
-	 * uses a random move from the enemies moveset
+	 * uses a random move from the enemies move-set
 	 */
 	public void useRandomEnemyMove() {
 		Random r = new Random();
@@ -151,7 +151,13 @@ public class Battle {
 		}
 		turn = Players.PLAYER;
 	}
-
+	
+	
+	/*
+	 * Updates the battle, if the turn is the enemies then it uses a timer thread to give the illusion of the enemy "Thinking"
+	 * also tests for end-battle conditions
+	 */
+	
 	private void updateBattle() {
 
 		if (turn.equals(Players.ENEMY)) {
@@ -174,19 +180,30 @@ public class Battle {
 			winner = Players.ENEMY;
 		}
 	}
-
+	
+	/*
+	 * @returns Returns the players current FP
+	 */
 	public String getPlayerFP() {
 		return String.format("%d/%d", playerFP, maxPlayerFP);
 	}
-
+	/*
+	 * @returns Returns the enemies current FP
+	 */
 	public String getEnemyFP() {
 		return String.format("%d/%d", enemyFP, maxEnemyFP);
 	}
-
+	/*
+	 * @returns Returns the current status of the battle
+	 */
 	public String getStatus() {
 		return status;
 	}
 	
+	
+	/*
+	 * Initializes the timer thread that is needed to use a random enemy move
+	 */
 	private void initTimer() {
 		timer  = new Thread() {
 			public void run() {
@@ -205,6 +222,10 @@ public class Battle {
 		};
 	}
 	
+	
+	/*
+	 * Returns the winner of the battle
+	 */
 	public String getWinner() {
 		if(winner.equals(Players.ENEMY)) {
 			return "Enemy";
