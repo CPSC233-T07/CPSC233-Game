@@ -30,21 +30,21 @@ public class PlayerAnimationComponent extends Component{
 	private static Direction direction = Direction.DOWN;
 	
 	private AnimatedTexture texture;
-	private AnimationChannel animStopU,animStopV,animStopH,animWalkUp,animWalkV,animWalkH;
+	private AnimationChannel animStopU,animStopD,animStopH,animWalkUp,animWalkD,animWalkH;
 	
 	public PlayerAnimationComponent(String spriteSheetName) {
 		validDirections = resetValidDirections();
 		//Importing sprite sheet, defining frames for each animated direction
 		animStopU=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),9,9);
-		animStopV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
+		animStopD=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),1,1);
 		animStopH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),5,5);
 		
 		
 		animWalkUp=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),8,11);
-		animWalkV=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),0,3);
+		animWalkD=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),0,3);
 		animWalkH=new AnimationChannel(FXGL.image(spriteSheetName),16,32,32,Duration.seconds(ANIM_SPEED),4,7);
 		
-		texture = new AnimatedTexture(animStopV);
+		texture = new AnimatedTexture(animStopD);
 	}
 	
 
@@ -71,8 +71,8 @@ public class PlayerAnimationComponent extends Component{
             }
         }else if (speedY != 0) {
         	 if (speedY > 0) {
-        		 if(texture.getAnimationChannel() != animWalkV) {
-             		texture.loopAnimationChannel(animWalkV);
+        		 if(texture.getAnimationChannel() != animWalkD) {
+             		texture.loopAnimationChannel(animWalkD);
              		direction = Direction.DOWN; 
              	}
         	 }	 
@@ -88,7 +88,7 @@ public class PlayerAnimationComponent extends Component{
                      speedY = 0;
                      if (direction == Direction.DOWN)
                      {
-                    	 texture.loopAnimationChannel(animStopV);
+                    	 texture.loopAnimationChannel(animStopD);
                      }
                      else
                      {

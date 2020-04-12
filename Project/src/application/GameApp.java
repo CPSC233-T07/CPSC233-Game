@@ -182,21 +182,7 @@ public class GameApp extends GameApplication {
 			protected void onAction() {
 				if(!battle)
 					player.getComponent(PlayerAnimationComponent.class).moveDown();
-//					
-//				if((player.getY() > 1575) && isInRoom)
-//				{
-//					ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
-//					
-//					entitiesToAdd.add(FXGL.entityBuilder() 			//Initialize the game map
-//							.view("EmptyMap.png")
-//							.build());
-//					
-//					entitiesToAdd.add(FXGL.spawn("enemy",600,600));
-//					
-//					mainLevel = new Level(0,0, entitiesToAdd);
-//					FXGL.getGameWorld().setLevel(mainLevel);
-//					isInRoom = false;
-//				}
+
 			}
 		}, KeyCode.S);
 		
@@ -266,7 +252,6 @@ public class GameApp extends GameApplication {
 	 * Let's the player enter the house, switching the map to the house interior
 	 */
 	private void enterHouse() {
-		
 		ArrayList<Entity> entitiesToAdd = new ArrayList<Entity>(); // List of enities other than the map and the player that will be in the new "level"
 		
 		roomLevel = new Level(0,0,entitiesToAdd); //no entities are added, so it only keeps the irremovable objects (the player and the room interiors)
@@ -346,8 +331,6 @@ public class GameApp extends GameApplication {
 		
 		try {
 			b = new Battle(100, 100, playerMoves, enemyMoves);
-		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
 		} catch (InvalidMoveFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -386,7 +369,6 @@ public class GameApp extends GameApplication {
 			
 			moves.getChildren().add(buttons);
 			
-			index++;
 			
 		}
 		moves.setLayoutX(100);
@@ -461,7 +443,6 @@ public class GameApp extends GameApplication {
 	 * Called when the battle finishes, cleans up the UI, removes unnessassary components and starts an end-of-battle cutscene
 	 */
 	private void finishBattle() {
-		System.out.println("finshing");
 		ArrayList<String> endStatus = new ArrayList<String>();
 		FXGL.removeUINode(statusPane);
 		FXGL.removeUINode(enemyFPPane);
@@ -474,17 +455,14 @@ public class GameApp extends GameApplication {
 			endStatus.add("Player : I won the battle!");
 			endStatus.add("Player : The enemy is now my friend!");
 			endStatus.add("Player : Yay!");
-			System.out.println(b.getWinner());
 		}else if(b.getWinner().equals("PlayerU")) {
 			endStatus.add("Player : I won the battle!");
 			endStatus.add("Player : But I made the enemy sad...");
 			endStatus.add("Player : They are going to go home and cry now...");
-			System.out.println(b.getWinner());
 		}else {
 			endStatus.add("Player : How unfortunate...");
 			endStatus.add("Player : I lost...");
 			endStatus.add("Player : but mom said I can do anything!?");
-			System.out.println(b.getWinner());
 		}
 		
 		FXGL.getCutsceneService().startCutscene(new Cutscene(endStatus));
@@ -493,36 +471,6 @@ public class GameApp extends GameApplication {
 		
 
 	}
-	
-public DataFile saveState() {
-		
-		Bundle data = new Bundle("Root");
-		data.put("playerX", player.getX());
-		data.put("playerY", player.getY());
-//		data.put("playerHP", );
-//		data.put("level", );
-
-		
-		
-		
-		DataFile d = new DataFile();
-		d.putBundle(data);
-		return d;
-	}
-	
-	public void loadState(DataFile dataFile) {
-
-	    Bundle bundle = (Bundle) dataFile.getBundle("Root");
-	    double X = bundle.get("playerX");
-	    double Y = bundle.get("playerY");
-//	    double HP = bundle.get("playerHP");
-//	    double lvl = bundle.get("level");
-	    
-	}
-	
-
-	
-	
 	
 	public static void main(String[] args) {
 		launch(args);

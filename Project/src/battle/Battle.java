@@ -60,7 +60,7 @@ public class Battle {
 	 * 
 	 */
 	public Battle(int playerFP, int maxEnemyFP, String[] playerMoves,
-			String[] enemyMoves) throws IndexOutOfBoundsException, InvalidMoveFormatException {
+			String[] enemyMoves) throws  InvalidMoveFormatException {
 
 		this.playerMoves = new HashMap<String, Integer>();
 		this.playerFP = playerFP;
@@ -93,7 +93,7 @@ public class Battle {
 	}
 
 	/*
-	 * Starts the battle;
+	 * Checks if battle is finished
 	 */
 
 	public boolean isFinished() {
