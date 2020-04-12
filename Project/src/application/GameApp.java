@@ -467,9 +467,6 @@ public class GameApp extends GameApplication {
 		
 		FXGL.getCutsceneService().startCutscene(new Cutscene(endStatus));
 		
-
-		
-
 	}
 	
 	public static void main(String[] args) {
