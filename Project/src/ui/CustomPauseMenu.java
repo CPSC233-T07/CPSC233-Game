@@ -1,10 +1,15 @@
 package ui;
 
+import java.util.ArrayList;
+
 import com.almasb.fxgl.animation.Animation;
 import com.almasb.fxgl.animation.Interpolators;
 import com.almasb.fxgl.app.scene.PauseMenu;
+import com.almasb.fxgl.core.serialization.Bundle;
 import com.almasb.fxgl.core.util.EmptyRunnable;
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.profile.DataFile;
 
 import application.GameApp;
 import javafx.event.ActionEvent;
@@ -32,6 +37,10 @@ public class CustomPauseMenu extends PauseMenu{
 	private static final double BUTTON_WIDTH = 125;
 	private static final double BUTTON_HEIGHT = 40;
 
+	private boolean dataSaved = false;
+	
+	public double playerX = 0;
+	public double playerY = 0;
 	
     public void MyPauseMenu() {
         getContentRoot().setTranslateX((APP_WIDTH / 2.0) - WINDOW_SIZE);
@@ -80,8 +89,13 @@ public class CustomPauseMenu extends PauseMenu{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				//savestate()
+				dataSaved = true;
+				ArrayList<Entity> entities = FXGL.getGameWorld().getEntities();
+				Entity player = entities.get(3);
 				
+				playerX = player.getX();
+				playerY = player.getY();
+				btnSave.setOnMouseClicked(e -> requestHide());			
 			}
         	
         });
@@ -97,7 +111,13 @@ public class CustomPauseMenu extends PauseMenu{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				//loadState
+				if(dataSaved){
+					ArrayList<Entity> entities = FXGL.getGameWorld().getEntities();
+					Entity player = entities.get(3);
+					player.setX(playerX);
+					player.setY(playerY);
+					btnLoad.setOnMouseClicked(e -> requestHide());
+				}
 				
 			}
         	

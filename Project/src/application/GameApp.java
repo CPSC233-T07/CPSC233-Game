@@ -471,7 +471,7 @@ public class GameApp extends GameApplication {
 		
 		FXGL.getCutsceneService().startCutscene(new Cutscene(endStatus));
 		
-		//Adam says he can do this shit so he will.
+
 		
 
 	}
