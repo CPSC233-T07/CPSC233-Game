@@ -99,7 +99,6 @@ public class GameApp extends GameApplication {
 		battleStarted = false;
 		
 		settings.setSceneFactory(new MenuFactory());
-		//settings.setMenuEnabled(true);
         settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
 		
 	}
